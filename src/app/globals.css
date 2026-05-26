@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+
+:root {
+  --neviri-dark: #1A1E26;
+  --neviri-dark-secondary: #1F242C;
+  --neviri-dark-tertiary: #bdc5d1;
+  --neviri-lime: #76FF03;
+  --neviri-lime-hover: #66DD00;
+  --neviri-text-primary: #FFFFFF;
+  --neviri-text-secondary: #E5E7EB;
+  --neviri-text-muted: #9CA3AF;
+  --neviri-border: #9CA3AF;
+  --neviri-input-bg: #3A404B;
+  /* Midnight Purple theme */
+  --neviri-primary: #7C3AED; /* violet-600 */
+  --neviri-primary-hover: #6D28D9; /* violet-700 */
+  --neviri-accent: #C026D3; /* fuchsia-600 */
+  --neviri-accent-light: #A78BFA; /* violet-300 */
+}
+
+
+body {
+  background-color: var(--neviri-dark);
+  color: var(--neviri-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/*
+ * Defensive defaults — body sets `color: white` for the dark marketing
+ * theme, but every form control and table cell in the dashboard sits on a
+ * light background. Without explicit colors they inherit the body's white
+ * and become invisible. Tailwind classes override these when needed.
+ */
+select,
+option,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+textarea,
+td,
+th {
+  color: #1A1F2C;
+}
+
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--neviri-dark) 0%, #1F242C 50%, var(--neviri-dark) 100%);
+}
+
+.gradient-bg-secondary {
+  background: linear-gradient(135deg, var(--neviri-dark-secondary) 0%, var(--neviri-dark) 100%);
+}
+
+
+.glow-lime {
+  box-shadow: 0 0 20px rgba(118, 255, 3, 0.3);
+}
+
+.glow-lime-text {
+  text-shadow: 0 0 10px rgba(118, 255, 3, 0.5);
+}
+
+/* New: Midnight Purple glows */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+.glow-primary-text {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(118, 255, 3, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* New: Purple shimmer */
+.shimmer-primary {
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.15), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neviri-dark-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neviri-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neviri-primary);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--neviri-primary) 0%, var(--neviri-primary-hover) 100%);
+  color: var(--neviri-text-primary);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--neviri-primary-hover) 0%, var(--neviri-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--neviri-primary);
+  border: 2px solid var(--neviri-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--neviri-primary);
+  color: var(--neviri-text-primary);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+/* Card styles */
+.card-dark {
+  background: var(--neviri-dark-tertiary);
+  border: 1px solid var(--neviri-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.card-dark:hover {
+  border-color: var(--neviri-primary);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.18);
+}
+
+/* Input styles */
+.input-dark {
+  background: var(--neviri-input-bg);
+  border: 1px solid var(--neviri-border);
+  color: var(--neviri-text-primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.input-dark:focus {
+  border-color: var(--neviri-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  outline: none;
+}
+
+.input-dark::placeholder {
+  color: var(--neviri-text-muted);
+}
+
+/* Status indicators (keep semantic colors) */
+.status-running {
+  background: var(--neviri-lime);
+  box-shadow: 0 0 10px rgba(118, 255, 3, 0.5);
+}
+
+.status-stopped {
+  background: #EF4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.status-creating {
+  background: #F59E0B;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
