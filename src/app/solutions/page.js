@@ -551,7 +551,7 @@ const SolutionsPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-5 justify-center relative z-10">
                 <a
-                  href="https://sng-central.neviri.com"
+                  href="https://sng-central.neviri.com/login"
                   className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-8 py-4 rounded-full font-extrabold text-lg hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300 transform flex items-center justify-center space-x-3 group cursor-pointer"
                 >
                   <span>Deploy a VM or Database</span>

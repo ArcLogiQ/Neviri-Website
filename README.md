@@ -1,6 +1,6 @@
 # Neviri Website
 
-Marketing website for Neviri Cloud, extracted from the main `frontend` app. Pure marketing — no dashboard, no auth flows. Login / Sign Up links redirect to the central auth host at `https://sng-central.neviri.com`.
+Marketing website for Neviri Cloud, extracted from the main `frontend` app. Pure marketing — no dashboard, no auth flows. Login / Sign Up links redirect to the central auth host at `https://sng-central.neviri.com/login`.
 
 ## Pages
 

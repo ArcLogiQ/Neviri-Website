@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-const AUTH_URL = "https://sng-central.neviri.com";
+const AUTH_URL = "https://sng-central.neviri.com/login";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

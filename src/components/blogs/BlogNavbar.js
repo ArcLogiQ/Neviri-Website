@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const AUTH_URL = "https://sng-central.neviri.com";
+const AUTH_URL = "https://sng-central.neviri.com/login";
 
 const BlogNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
