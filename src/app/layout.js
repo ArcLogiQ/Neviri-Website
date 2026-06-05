@@ -1,10 +1,15 @@
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Footer from "@/components/common/Footer";
+import ConditionalFooter from "@/components/common/ConditionalFooter";
 import { Toaster } from "react-hot-toast";
+import { ProcessingProvider } from "@/context/ProcessingContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Neviri Cloud – Dedicated Cloud Platform for Modern Infrastructure, Databases & Compliance",
@@ -54,7 +59,7 @@ export default function RootLayout({ children }) {
         />
         <meta name="twitter:image" content="/images/favicon-32x32.png" />
       </head>
-      <body className={inter.className}>
+      <body className={plusJakartaSans.className}>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T7C75JD80Z"
@@ -69,27 +74,34 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        <main>{children}</main>
-        <Footer />
-        <Toaster
-          position="top-right"
-          containerStyle={{ zIndex: 100000 }}
-          toastOptions={{
-            duration: 4000,
-            style: {
-              maxWidth: 460,
-              fontSize: 14,
-              padding: "12px 16px",
-            },
-            error: {
-              duration: 6000,
-              iconTheme: { primary: "#dc2626", secondary: "#fff" },
-            },
-            success: {
-              iconTheme: { primary: "#059669", secondary: "#fff" },
-            },
-          }}
-        />
+        {/* <Navbar /> */}
+        <ProcessingProvider>
+          <main>{children}</main>
+          <ConditionalFooter />
+          {/* z-index above any modal overlay (modals use z-[9999]) so
+              toasts are always readable, never blurred behind a
+              modal backdrop. ``containerStyle`` is the documented
+              react-hot-toast knob for this. */}
+          <Toaster
+            position="top-right"
+            containerStyle={{ zIndex: 100000 }}
+            toastOptions={{
+              duration: 4000,
+              style: {
+                maxWidth: 460,
+                fontSize: 14,
+                padding: "12px 16px",
+              },
+              error: {
+                duration: 6000,
+                iconTheme: { primary: "#dc2626", secondary: "#fff" },
+              },
+              success: {
+                iconTheme: { primary: "#059669", secondary: "#fff" },
+              },
+            }}
+          />
+        </ProcessingProvider>
       </body>
     </html>
   );

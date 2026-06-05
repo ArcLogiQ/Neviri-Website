@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --color-blue-50: var(--color-sky-50);
+  --color-blue-100: var(--color-sky-100);
+  --color-blue-200: var(--color-sky-200);
+  --color-blue-300: var(--color-sky-300);
+  --color-blue-400: var(--color-sky-400);
+  --color-blue-500: var(--color-sky-500);
+  --color-blue-600: var(--color-sky-600);
+  --color-blue-700: var(--color-sky-700);
+  --color-blue-800: var(--color-sky-800);
+  --color-blue-900: var(--color-sky-900);
+  --color-blue-950: var(--color-sky-950);
+}
 
 :root {
   --neviri-dark: #1A1E26;
@@ -12,18 +25,18 @@
   --neviri-text-muted: #9CA3AF;
   --neviri-border: #9CA3AF;
   --neviri-input-bg: #3A404B;
-  /* Midnight Purple theme */
-  --neviri-primary: #7C3AED; /* violet-600 */
-  --neviri-primary-hover: #6D28D9; /* violet-700 */
-  --neviri-accent: #C026D3; /* fuchsia-600 */
-  --neviri-accent-light: #A78BFA; /* violet-300 */
+  /* Sky Blue theme */
+  --neviri-primary: #0EA5E9; /* sky-500 */
+  --neviri-primary-hover: #0284C7; /* sky-600 */
+  --neviri-accent: #0EA5E9; /* sky-500 */
+  --neviri-accent-light: #38BDF8; /* sky-300 */
 }
 
 
 body {
   background-color: var(--neviri-dark);
   color: var(--neviri-text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /*
@@ -64,13 +77,13 @@ th {
   text-shadow: 0 0 10px rgba(118, 255, 3, 0.5);
 }
 
-/* New: Midnight Purple glows */
+/* New: Sky Blue & Indigo glows */
 .glow-primary {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.35);
 }
 
 .glow-primary-text {
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
 }
 
 /* Custom animations */
@@ -89,9 +102,9 @@ th {
   animation: shimmer 2s infinite;
 }
 
-/* New: Purple shimmer */
+/* New: Sky Blue shimmer */
 .shimmer-primary {
-  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.15), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -110,9 +123,9 @@ th {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: var(--neviri-primary);
-}
+} */
 
 /* Custom button styles */
 .btn-primary {
@@ -125,7 +138,7 @@ th {
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--neviri-primary-hover) 0%, var(--neviri-primary) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.35);
 }
 
 .btn-secondary {
@@ -138,7 +151,7 @@ th {
 .btn-secondary:hover {
   background: var(--neviri-primary);
   color: var(--neviri-text-primary);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.35);
 }
 
 /* Card styles */
@@ -151,7 +164,7 @@ th {
 
 .card-dark:hover {
   border-color: var(--neviri-primary);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.18);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.18);
 }
 
 /* Input styles */
@@ -165,7 +178,7 @@ th {
 
 .input-dark:focus {
   border-color: var(--neviri-primary);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
   outline: none;
 }
 

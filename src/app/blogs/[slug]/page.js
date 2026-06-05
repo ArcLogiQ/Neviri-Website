@@ -242,7 +242,7 @@ export default function BlogPage({ params }) {
       case "quote":
         return (
           <div key={block.order} className="mb-8">
-            <blockquote className="border-l-4 border-purple-600 pl-6 py-4 bg-purple-600/10 rounded-r-lg">
+            <blockquote className="border-l-4 border-sky-600 pl-6 py-4 bg-sky-600/10 rounded-r-lg">
               <p className="text-lg italic text-[#4B5565]">{block.content}</p>
               {block.heading && (
                 <cite className="text-sm text-[#9AA5B8] mt-2 block">
@@ -282,7 +282,7 @@ export default function BlogPage({ params }) {
               The blog you are looking for does not exist.
             </p>
             <Link href="/blogs">
-              <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+              <button className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg transition-colors">
                 Back to Blogs
               </button>
             </Link>
@@ -311,7 +311,7 @@ export default function BlogPage({ params }) {
         {/* Blog Header */}
         <div className="mb-8">
           <div className="mb-4">
-            <span className="inline-block bg-purple-600 text-white px-3 py-1 rounded text-sm mb-4">
+            <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded text-sm mb-4">
               {blog?.category}
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-[#1A1F2C] mb-4 leading-tight">
@@ -322,7 +322,7 @@ export default function BlogPage({ params }) {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-white font-semibold">
                   {blog?.author?.name
                     ?.split(" ")
                     .map((n) => n[0])
@@ -423,7 +423,7 @@ export default function BlogPage({ params }) {
                 onClick={handleBookmark}
                 className={`p-2 rounded-lg transition-colors ${
                   isBookmarked
-                    ? "bg-[#2563EB]/20 text-purple-600 border border-[#2563EB]/30"
+                    ? "bg-[#2563EB]/20 text-sky-600 border border-[#2563EB]/30"
                     : "bg-[#E5EAF1] hover:bg-[#DDE3EA] text-[#4B5565] border border-[#DDE3EA]"
                 }`}
               >
@@ -574,7 +574,7 @@ export default function BlogPage({ params }) {
         <div className="mb-12">
           <div className="bg-white backdrop-blur-sm rounded-xl border border-[#DDE3EA] p-6">
             <div className="flex items-start space-x-4">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-xl">
+              <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center text-white font-semibold text-xl">
                 {blog?.author?.name
                   ?.split(" ")
                   .map((n) => n[0])
@@ -624,12 +624,12 @@ export default function BlogPage({ params }) {
                   placeholder="Share your thoughts..."
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
-                  className="w-full bg-[#F7F9FC] border border-[#DDE3EA] rounded-lg px-4 py-3 text-[#1A1F2C] placeholder-[#9AA5B8] focus:outline-none focus:border-purple-600 transition-colors resize-none mb-3"
+                  className="w-full bg-[#F7F9FC] border border-[#DDE3EA] rounded-lg px-4 py-3 text-[#1A1F2C] placeholder-[#9AA5B8] focus:outline-none focus:border-sky-600 transition-colors resize-none mb-3"
                   rows="4"
                 />
                 <button
                   onClick={handleComment}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors"
+                  className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg transition-colors"
                 >
                   Post Comment
                 </button>
@@ -646,7 +646,7 @@ export default function BlogPage({ params }) {
                           : "bg-[#F7F9FC] border border-[#DDE3EA]"
                       }`}
                     >
-                      <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                      <div className="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                         {comment.user?.name
                           ?.split(" ")
                           .map((n) => n[0])
