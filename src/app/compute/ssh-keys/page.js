@@ -257,7 +257,7 @@ export default function SSHKeysPage() {
             
             <div className="mt-16 text-center">
               <p className="text-slate-500 mb-6">Ready to secure your infrastructure?</p>
-              <Link href="/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
+              <Link href="https://sng-central.neviri.com/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
                 Create Your Account <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

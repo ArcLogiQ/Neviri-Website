@@ -85,7 +85,7 @@ export default function AppDeploymentPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link href="/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-xl">
+            <Link href="https://sng-central.neviri.com/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative flex items-center justify-center gap-2">
                 Deploy Your Project Now
@@ -237,7 +237,7 @@ export default function AppDeploymentPage() {
                     </div>
                     
                     <div className="mt-8 pt-6 border-t border-slate-700/50">
-                      <Link href="/signup" className="text-sky-400 hover:text-sky-300 font-bold flex items-center gap-2 text-sm group transition-colors">
+                      <Link href="https://sng-central.neviri.com/signup" className="text-sky-400 hover:text-sky-300 font-bold flex items-center gap-2 text-sm group transition-colors">
                         Deploy your codebase stack now
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -314,7 +314,7 @@ export default function AppDeploymentPage() {
             
             <div className="mt-16 text-center">
               <p className="text-slate-500 mb-6">Ready to scale your software deployment cycle?</p>
-              <Link href="/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
+              <Link href="https://sng-central.neviri.com/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
                 Launch Your First App <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

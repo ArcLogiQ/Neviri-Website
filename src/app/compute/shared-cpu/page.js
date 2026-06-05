@@ -102,7 +102,7 @@ export default function SharedCPUPage() {
 
           <div className="flex flex-wrap items-center gap-5">
             <Link
-              href="/signup"
+              href="https://sng-central.neviri.com/signup"
               className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl shadow-slate-900/20 hover:-translate-y-0.5 hover:shadow-slate-900/30"
             >
               Deploy a Cloud Server
@@ -278,7 +278,7 @@ export default function SharedCPUPage() {
                 Join thousands of developers hosting their applications on Neviri Cloud. Sign up today and provision your first NVMe-backed shared CPU instance in seconds.
               </p>
               <Link
-                href="/signup"
+                href="https://sng-central.neviri.com/signup"
                 className="bg-sky-500 hover:bg-sky-400 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg shadow-sky-500/30 hover:-translate-y-1 hover:shadow-sky-500/50 flex items-center gap-2"
               >
                 Start Building Now <ChevronRight className="w-5 h-5" />

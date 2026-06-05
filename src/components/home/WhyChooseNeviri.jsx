@@ -142,19 +142,13 @@ const WhyChooseNeviri = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <button
-                  onClick={() => router.push("/signup")}
+                <a
+                  href="https://sng-central.neviri.com/signup"
                   className="w-full sm:w-auto bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300 flex items-center justify-center group/btn hover:-translate-y-1"
                 >
                   <span>Start Your Free Trial</span>
                   <ArrowRight className="ml-3 h-5 w-5 group-hover/btn:translate-x-1.5 transition-transform" />
-                </button>
-                <button
-                  onClick={() => router.push("/contact")}
-                  className="w-full sm:w-auto bg-transparent text-white border-2 border-white/20 px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0F172A] transition-all duration-300"
-                >
-                  Talk to Sales
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -94,7 +94,7 @@ export default function BlockStoragePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <Link href="/signup" className="group bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto shadow-xl flex items-center justify-center gap-2">
+                <Link href="https://sng-central.neviri.com/signup" className="group bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto shadow-xl flex items-center justify-center gap-2">
                   Create a Volume
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
