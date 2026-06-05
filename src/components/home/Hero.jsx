@@ -53,7 +53,7 @@ const Hero = () => {
             </p>
 
             <Link
-              href="/signup"
+              href="https://sng-central.neviri.com/signup"
               className="flex items-center justify-center px-10 py-4 bg-[#0F172A] text-white rounded-full font-bold text-lg transition-all hover:bg-black hover:scale-105 shadow-xl shadow-black/5 group"
             >
               Start Your Free Trial

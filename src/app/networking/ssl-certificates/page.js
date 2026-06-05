@@ -87,7 +87,7 @@ export default function SSLCertificatePage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link href="/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-xl">
+            <Link href="https://sng-central.neviri.com/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative flex items-center justify-center gap-2">
                 Secure Your Domains
@@ -305,7 +305,7 @@ export default function SSLCertificatePage() {
             
             <div className="mt-16 text-center">
               <p className="text-slate-500 mb-6">Ready to secure your traffic and boost user trust?</p>
-              <Link href="/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
+              <Link href="https://sng-central.neviri.com/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
                 Enable Automated SSL <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
