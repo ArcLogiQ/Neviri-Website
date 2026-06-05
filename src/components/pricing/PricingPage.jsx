@@ -17,7 +17,6 @@ import {
   Cpu,
   ChevronDown
 } from "lucide-react";
-// import DashboardHeader from "@/components/dashboard/dashboard-component/dashboard-header";
 
 const VM_PRICING = [
   { flavor: "gen2.nano",    vcpu: 1,  ram: 1,  priceMo: 6.00,   priceHr: 0.008 },
@@ -86,7 +85,7 @@ function PillGroup({ label, options, value, onChange }) {
   );
 }
 
-// Custom Row Component to handle individual storage dropdowns
+// ── CUSTOM ROW COMPONENT (Updated UI) ──
 function PricingRow({ vm, billing }) {
   const [storageGb, setStorageGb] = useState(BASE_INCLUDED_STORAGE);
   const [isOpen, setIsOpen] = useState(false);
@@ -127,7 +126,7 @@ function PricingRow({ vm, billing }) {
   const totalHr = vm.priceHr + extraCostHr;
 
   return (
-    <tr className="hover:bg-sky-50/50 transition-colors duration-150">
+    <tr className="hover:bg-sky-50/50 transition-colors duration-150 relative">
       <td className="px-6 py-4"><span className="font-mono font-semibold text-[#0F172A] text-sm">{vm.flavor}</span></td>
       <td className="px-6 py-4 text-center">
         <span className="inline-flex items-center justify-center gap-1 text-sm font-semibold text-slate-700">
@@ -136,34 +135,33 @@ function PricingRow({ vm, billing }) {
       </td>
       <td className="px-6 py-4 text-center font-medium text-slate-700">{vm.ram} GB</td>
       
-      {/* CLOUDPE-STYLE INLINE STORAGE DROPDOWN */}
+      {/* ── UPDATED DROPDOWN MATCHING SCREENSHOT ── */}
       <td className="px-6 py-4 text-center relative" ref={dropdownRef}>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 border rounded-lg text-xs font-bold transition-all ${
-            isOpen ? "bg-sky-50 border-sky-300 text-sky-700" : "bg-white border-gray-200 text-gray-700 hover:border-sky-300 hover:text-sky-600"
+          className={`inline-flex items-center gap-2 px-4 py-1.5 border rounded-lg text-sm font-bold transition-all ${
+            isOpen 
+              ? "bg-sky-50 border-sky-300 text-[#2186d4]" 
+              : "bg-white border-sky-300 text-[#2186d4] hover:bg-sky-50"
           }`}
         >
-          <HardDrive className="h-3 w-3 text-sky-500" />
+          <HardDrive className="h-4 w-4" />
           {storageGb >= 1024 ? `${storageGb / 1024} TB` : `${storageGb} GB`}
-          <ChevronDown className={`h-3 w-3 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-200 z-50 p-4 text-left animate-in fade-in zoom-in-95 duration-200">
+          <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-white rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 z-[999] p-5 text-left animate-in fade-in zoom-in-95 duration-200">
+            
             {/* Quick Select Section */}
-            <div className="mb-4">
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Quick Select</p>
-              <div className="grid grid-cols-2 gap-2">
+            <div className="mb-5">
+              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Quick Select</p>
+              <div className="grid grid-cols-1 gap-2">
                 {QUICK_SELECT_OPTIONS.map((val) => (
                   <button
                     key={val}
                     onClick={() => handleQuickSelect(val)}
-                    className={`py-1.5 px-2 rounded-md text-xs font-bold transition-all ${
-                      storageGb === val 
-                        ? 'bg-sky-600 text-white shadow-sm' 
-                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-[#0F172A] border border-gray-100'
-                    }`}
+                    className="w-full py-2.5 px-4 rounded-xl text-sm font-bold bg-[#278be1] hover:bg-[#1f7ac8] text-white transition-colors shadow-sm"
                   >
                     {val >= 1024 ? `${val / 1024} TB` : `${val} GB`}
                   </button>
@@ -173,9 +171,9 @@ function PricingRow({ vm, billing }) {
 
             {/* Custom Storage Section */}
             <div>
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Custom Storage</p>
-              <div className="flex flex-col gap-2">
-                <div className="relative">
+              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Custom Storage</p>
+              <div className="flex flex-col gap-3">
+                <div className="relative flex items-center border border-gray-200 rounded-xl overflow-hidden focus-within:border-[#278be1] focus-within:ring-1 focus-within:ring-[#278be1] transition-all">
                   <input
                     type="text"
                     value={customInput}
@@ -185,26 +183,19 @@ function PricingRow({ vm, billing }) {
                       }
                     }}
                     placeholder="e.g. 200"
-                    className="w-full bg-white border border-gray-200 text-gray-700 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm font-medium"
+                    className="w-full bg-white text-gray-700 py-2.5 pl-4 pr-12 focus:outline-none text-sm font-medium"
                   />
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                    <span className="text-gray-400 text-xs font-bold">GB</span>
-                  </div>
+                  <span className="absolute right-4 text-gray-400 text-sm font-bold pointer-events-none">GB</span>
                 </div>
                 <button
                   onClick={handleApplyCustom}
-                  className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+                  className="w-full bg-[#278be1] hover:bg-[#1f7ac8] text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm"
                 >
                   Apply
                 </button>
               </div>
-              
-              {/* Formula explanation */}
-              {/* <div className="mt-3 flex justify-between items-center text-[10px] text-gray-400 font-medium">
-                <span>First 25GB Free</span>
-                {extraGb > 0 && <span className="text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded font-bold">+${extraCostMo.toFixed(2)}/mo</span>}
-              </div> */}
             </div>
+
           </div>
         )}
       </td>
@@ -230,9 +221,6 @@ export default function PricingPage() {
 
   return (
     <div className="flex flex-col min-h-screen" style={gridBg}>
-
-      {/* Uncomment this once your JSON.parse error in DashboardHeader is fixed! */}
-      {/* <DashboardHeader className="bg-white/80 backdrop-blur-md border-b border-gray-200" /> */}
 
       {/* ── HERO ── */}
       <header className="relative pt-16 pb-12 text-center">
@@ -296,7 +284,7 @@ export default function PricingPage() {
               <PillGroup label="Billing" options={["Hourly", "Monthly"]} value={billing} onChange={setBilling} />
             </div>
 
-            {/* Note: overflow-visible is needed here so the dropdown doesn't get cut off inside the table */}
+            {/* Overflow-visible required here to stop dropdowns from cutting off */}
             <div className="bg-white border border-gray-200 rounded-2xl shadow-sm">
               <div className="overflow-visible">
                 <table className="w-full text-sm">

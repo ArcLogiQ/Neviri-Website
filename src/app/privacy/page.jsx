@@ -5,45 +5,48 @@ import Navbar from "@/components/common/Navbar";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C] relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 from-[#E5EAF1] via-[#F7F9FC] to-[#E5EAF1]"></div>
-      <div className="absolute inset-0 bg-[url('/images/signup1.jpeg')] bg-cover bg-center opacity-5"></div>
-      <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-80 h-80  rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 -r from-[#2563EB]/10 to-[#00A3FF]/10 rounded-full blur-3xl"></div>
+    <div className="min-h-screen bg-white text-[#0F172A] relative overflow-hidden font-sans antialiased selection:bg-sky-600/30 selection:text-black">
+      {/* Background Decor: Clean Dribbble Grid */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      ></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
+
         {/* Header */}
-        <div className="border-b border-[#DDE3EA] bg-white/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-            <div className="flex justify-center mb-4">
-              <Lock className="h-12 w-12 text-purple-600" />
+        <div className="border-b border-slate-100 bg-slate-50/50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <div className="flex justify-center mb-6">
+              <Lock className="h-14 w-14 text-[#3B82F6]" />
             </div>
-            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-600 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-4 tracking-[-0.04em]">
               Privacy Policy
             </h1>
-            <p className="text-xl text-[#4B5565] max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium">
               Last updated: {new Date().toLocaleDateString()}
             </p>
           </div>
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="prose prose-invert max-w-none">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+          <div className="max-w-none">
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 1. Information We Collect
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We collect information you provide directly to us, such as when
                 you create an account, update your profile, or use our services.
                 This may include:
               </p>
-              <ul className="list-disc pl-6 text-[#4B5565] space-y-2 mb-4">
+              <ul className="list-disc pl-6 text-slate-500 space-y-2 mb-4 font-medium">
                 <li>Contact information (name, email address)</li>
                 <li>Account credentials</li>
                 <li>Payment information (processed securely by Razorpay)</li>
@@ -52,14 +55,14 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 2. How We Use Your Information
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We use the information we collect to:
               </p>
-              <ul className="list-disc pl-6 text-[#4B5565] space-y-2 mb-4">
+              <ul className="list-disc pl-6 text-slate-500 space-y-2 mb-4 font-medium">
                 <li>Provide, maintain, and improve our services</li>
                 <li>Process transactions and send related information</li>
                 <li>
@@ -70,11 +73,11 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 3. Data Storage & Security
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We use industry-standard security measures to protect your
                 personal information. Your data is stored on secure servers and
                 we employ encryption for sensitive data transmission. However,
@@ -83,11 +86,11 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 4. Cookies & Tracking
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We use cookies and similar tracking technologies to track the
                 activity on our Service and hold certain information. You can
                 instruct your browser to refuse all cookies or to indicate when
@@ -96,11 +99,11 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 5. Third-Party Services
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We may employ third-party companies and individuals to
                 facilitate our Service (e.g., payment processors, cloud
                 providers). These third parties have access to your Personal
@@ -110,24 +113,24 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-[#1A1F2C] mb-4 flex items-center">
-                <span className="w-1.5 h-8 bg-purple-600 rounded-full mr-3"></span>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4 flex items-center tracking-tight">
+                <span className="w-1.5 h-8 bg-sky-600 rounded-full mr-3"></span>
                 6. Changes to This Policy
               </h2>
-              <p className="text-[#4B5565] leading-relaxed mb-4">
+              <p className="text-slate-500 leading-relaxed mb-4 font-medium">
                 We may update our Privacy Policy from time to time. We will
                 notify you of any changes by posting the new Privacy Policy on
                 this page and updating the "Last updated" date.
               </p>
             </section>
 
-            <section className="border-t border-[#DDE3EA] pt-8 mt-12">
-              <p className="text-[#9AA5B8] text-sm">
+            <section className="border-t border-slate-100 pt-8 mt-12">
+              <p className="text-slate-400 text-sm font-medium">
                 If you have any questions about this Privacy Policy, please
                 contact us at{" "}
                 <a
                   href="mailto:privacy@neviri.com"
-                  className="text-purple-600 hover:text-purple-700 transition-colors"
+                  className="text-[#3B82F6] hover:text-[#06B6D4] transition-colors font-bold"
                 >
                   privacy@neviri.com
                 </a>

@@ -36,14 +36,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="relative bg-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans antialiased border-t border-slate-200 selection:bg-[#3B82F6]/30 selection:text-black">
-      
+    <section className="relative bg-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans antialiased border-t border-slate-200 selection:bg-sky-600/30 selection:text-black">
       <div className="relative max-w-7xl mx-auto">
-        
         {/* Header Section */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6 tracking-[-0.03em] leading-tight">
-            Trusted by developers and <br className="hidden md:block" /> companies Worldwide
+            Trusted by developers and <br className="hidden md:block" />{" "}
+            companies Worldwide
           </h2>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">
             See what our customers say about their experience with Neviri Cloud
@@ -62,7 +61,7 @@ const Testimonials = () => {
                 <div className="w-12 h-12 bg-[#0F172A] rounded-xl flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Quote className="h-6 w-6 text-[#3B82F6]" />
                 </div>
-                
+
                 {/* True Blue Stars */}
                 <div className="flex space-x-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -100,11 +99,21 @@ const Testimonials = () => {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 text-[#0F172A] opacity-40 font-black text-xl tracking-tight transition-opacity duration-300 hover:opacity-100">
-            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">OpeninApp</div>
-            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">DBTech</div>
-            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">PVcomBank</div>
-            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">VietPay</div>
-            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">StartupLab</div>
+            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">
+              OpeninApp
+            </div>
+            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">
+              DBTech
+            </div>
+            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">
+              PVcomBank
+            </div>
+            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">
+              VietPay
+            </div>
+            <div className="hover:text-[#3B82F6] hover:drop-shadow-md transition-colors cursor-default">
+              StartupLab
+            </div>
           </div>
         </div>
       </div>
