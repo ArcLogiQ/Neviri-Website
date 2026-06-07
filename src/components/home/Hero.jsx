@@ -8,6 +8,7 @@ import {
   Activity,
 } from "lucide-react";
 import Link from "next/link";
+import { APP_SIGNUP_URL } from "@/config/api";
 
 const Hero = () => {
   return (
@@ -53,7 +54,7 @@ const Hero = () => {
             </p>
 
             <Link
-              href="https://sng-central.neviri.com/signup"
+              href={APP_SIGNUP_URL}
               className="flex items-center justify-center px-10 py-4 bg-[#0F172A] text-white rounded-full font-bold text-lg transition-all hover:bg-black hover:scale-105 shadow-xl shadow-black/5 group"
             >
               Start Your Free Trial

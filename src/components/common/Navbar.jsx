@@ -31,6 +31,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { APP_LOGIN_URL, APP_SIGNUP_URL } from "@/config/api";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -211,7 +212,7 @@ const Navbar = () => {
               Signup now and get a free $100 credit instantly
             </p>
             <Link
-              href="https://sng-central.neviri.com/signup"
+              href={APP_SIGNUP_URL}
               className="bg-[#0F172A] text-white px-5 py-1.5 rounded-md text-sm font-bold hover:bg-black transition-colors whitespace-nowrap"
             >
               Sign Up
@@ -307,7 +308,7 @@ const Navbar = () => {
               <div className="hidden md:flex items-center space-x-3">
                 {pathname === "/signup" && (
                   <a
-                    href="https://sng-central.neviri.com/login"
+                    href={APP_LOGIN_URL}
                     className="border border-[#E2E8F0] text-[#64748B] px-5 py-2 rounded-lg text-sm font-semibold hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-all duration-300"
                   >
                     Login
@@ -315,7 +316,7 @@ const Navbar = () => {
                 )}
                 {pathname === "/login" && (
                   <a
-                    href="https://sng-central.neviri.com/signup"
+                    href={APP_SIGNUP_URL}
                     className="bg-sky-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-sky-700 transition-all duration-300"
                   >
                     Register
@@ -324,13 +325,13 @@ const Navbar = () => {
                 {pathname !== "/login" && pathname !== "/signup" && (
                   <>
                     <a
-                      href="https://sng-central.neviri.com/login"
+                      href={APP_LOGIN_URL}
                       className="border border-[#E2E8F0] text-[#64748B] px-5 py-2 rounded-lg text-sm font-semibold hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-all duration-300"
                     >
                       Login
                     </a>
                     <a
-                      href="https://sng-central.neviri.com/signup"
+                      href={APP_SIGNUP_URL}
                       className="bg-sky-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-sky-700 hover:shadow-[0_0_15px_rgba(14,165,233,0.4)] hover:-translate-y-0.5 transition-all duration-300"
                     >
                       Register
@@ -570,14 +571,14 @@ const Navbar = () => {
           {/* Bottom Auth Buttons */}
           <div className="p-6 border-t border-[#E2E8F0] space-y-3">
             <a
-              href="https://sng-central.neviri.com/login"
+              href={APP_LOGIN_URL}
               onClick={() => setIsMenuOpen(false)}
               className="block w-full text-center border border-[#E2E8F0] text-[#0F172A] px-6 py-3 rounded-lg font-semibold hover:bg-sky-600 hover:border-sky-600 hover:text-white transition-all duration-200"
             >
               Login
             </a>
             <a
-              href="https://sng-central.neviri.com/signup"
+              href={APP_SIGNUP_URL}
               onClick={() => setIsMenuOpen(false)}
               className="block w-full text-center bg-sky-600 text-white px-6 py-3 rounded-lg font-bold shadow-sm hover:bg-sky-700 transition-all duration-200"
             >

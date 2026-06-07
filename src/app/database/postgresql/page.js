@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
+import { APP_SIGNUP_URL } from "@/config/api";
 
 export default function PostgreSQLPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -169,7 +170,7 @@ export default function PostgreSQLPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Link
-              href="https://sng-central.neviri.com/signup"
+              href={APP_SIGNUP_URL}
               className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-lg shadow-slate-900/25"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -555,7 +556,7 @@ export default function PostgreSQLPage() {
                 scaling.
               </p>
               <Link
-                href="https://sng-central.neviri.com/signup"
+                href={APP_SIGNUP_URL}
                 className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md"
               >
                 Initialize Postgres Cluster <ArrowRight className="h-4 w-4" />

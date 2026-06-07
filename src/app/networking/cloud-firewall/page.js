@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
+import { APP_SIGNUP_URL } from "@/config/api";
 
 export default function CloudFirewallPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -199,7 +200,7 @@ export default function CloudFirewallPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link href="https://sng-central.neviri.com/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-lg shadow-slate-900/25">
+            <Link href={APP_SIGNUP_URL} className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-lg shadow-slate-900/25">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative flex items-center justify-center gap-2">
                 Deploy a Cloud Firewall
@@ -624,7 +625,7 @@ export default function CloudFirewallPage() {
 
             <div className="mt-16 text-center">
               <p className="text-slate-500 mb-6">Create global security rules in seconds.</p>
-              <Link href="https://sng-central.neviri.com/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-emerald-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
+              <Link href={APP_SIGNUP_URL} className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-emerald-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
                 Deploy Stateful Firewall <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

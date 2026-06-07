@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
+import { APP_SIGNUP_URL } from "@/config/api";
 
 export default function ObjectStoragePage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -123,7 +124,7 @@ s3.upload_file('avatar.png', 'user-assets', 'uploads/avatar.png',
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <Link href="https://sng-central.neviri.com/signup" className="group bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto shadow-xl flex items-center justify-center gap-2">
+                <Link href={APP_SIGNUP_URL} className="group bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto shadow-xl flex items-center justify-center gap-2">
                   Create a Bucket
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

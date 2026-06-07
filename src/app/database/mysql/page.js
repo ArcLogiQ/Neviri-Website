@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
+import { APP_SIGNUP_URL } from "@/config/api";
 
 export default function MySQLPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -180,7 +181,7 @@ export default function MySQLPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link href="https://sng-central.neviri.com/signup" className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-lg shadow-slate-900/25">
+            <Link href={APP_SIGNUP_URL} className="group relative bg-[#0F172A] hover:bg-black text-white px-8 py-4 rounded-xl text-base font-bold transition-all w-full sm:w-auto overflow-hidden shadow-lg shadow-slate-900/25">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative flex items-center justify-center gap-2">
                 Deploy Your MySQL Cluster
@@ -309,7 +310,7 @@ export default function MySQLPage() {
                     <span className="text-xs text-slate-400 block font-medium">Estimated Pricing</span>
                     <span className="text-2xl font-black text-[#0F172A] font-mono">${plans[selectedPlan].price}<span className="text-xs font-bold text-slate-500"> / month</span></span>
                   </div>
-                  <Link href="https://sng-central.neviri.com/signup" className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1">
+                  <Link href={APP_SIGNUP_URL} className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1">
                     Provision Cluster <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
@@ -451,7 +452,7 @@ export default function MySQLPage() {
 
             <div className="mt-16 text-center">
               <p className="text-slate-500 mb-6">Focus on your application. We will manage your storage.</p>
-              <Link href="https://sng-central.neviri.com/signup" className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
+              <Link href={APP_SIGNUP_URL} className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-sky-600 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md">
                 Create MySQL Cluster Today <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
