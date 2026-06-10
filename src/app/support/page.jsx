@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import {
   Mail,
-  MessageCircle,
-  Phone,
   Server,
   ShieldCheck,
   Database,
@@ -53,14 +51,14 @@ const Support = () => {
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      if (response.ok) {
         toast.success("Support request submitted successfully!");
 
         setTimeout(() => {
           router.push("/thank-you");
         }, 1000);
       } else {
-        toast.error(data.message || "Failed to submit. Please try again.");
+        toast.error(data.detail || data.message || "Failed to submit. Please try again.");
         setLoading(false);
       }
     } catch (error) {
@@ -135,7 +133,7 @@ const Support = () => {
 
           {/* Contact Methods */}
           <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-24">
               {/* Email Support */}
               <div className="bg-white p-8 lg:p-10 rounded-[2rem] border border-slate-200 hover:border-[#3B82F6] hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] transition-all duration-300 group flex flex-col hover:-translate-y-1">
                 <div className="w-14 h-14 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center mb-8 group-hover:border-[#0F172A] group-hover:bg-[#0F172A] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300 group-hover:scale-110">
@@ -157,33 +155,10 @@ const Support = () => {
                 </a>
               </div>
 
-              {/* WhatsApp Support */}
+              {/* Enterprise Support */}
               <div className="bg-white p-8 lg:p-10 rounded-[2rem] border border-slate-200 hover:border-[#3B82F6] hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] transition-all duration-300 group flex flex-col hover:-translate-y-1">
                 <div className="w-14 h-14 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center mb-8 group-hover:border-[#0F172A] group-hover:bg-[#0F172A] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300 group-hover:scale-110">
-                  <MessageCircle className="h-6 w-6 text-[#0F172A] group-hover:text-[#3B82F6] transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-4 tracking-tight">
-                  Emergency DevOps Chat
-                </h3>
-                <p className="text-slate-500 mb-8 font-medium leading-relaxed flex-grow">
-                  Real-time incident response. Chat directly with our engineers
-                  for urgent deployment troubleshooting and scaling issues.
-                </p>
-                <a
-                  href="https://wa.me/919311299150?text=Hello%2C%20I%20need%20DevOps%20support%20with%20my%20Neviri%20Cloud%20infrastructure."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#0F172A] font-bold hover:text-[#3B82F6] inline-flex items-center gap-2 group-hover:underline decoration-2 underline-offset-4 transition-all"
-                >
-                  Chat on WhatsApp
-                  <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1" />
-                </a>
-              </div>
-
-              {/* Phone Support */}
-              <div className="bg-white p-8 lg:p-10 rounded-[2rem] border border-slate-200 hover:border-[#3B82F6] hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] transition-all duration-300 group flex flex-col hover:-translate-y-1">
-                <div className="w-14 h-14 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center mb-8 group-hover:border-[#0F172A] group-hover:bg-[#0F172A] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300 group-hover:scale-110">
-                  <Phone className="h-6 w-6 text-[#0F172A] group-hover:text-[#3B82F6] transition-colors" />
+                  <Mail className="h-6 w-6 text-[#0F172A] group-hover:text-[#3B82F6] transition-colors" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0F172A] mb-4 tracking-tight">
                   Enterprise Architecture
@@ -359,22 +334,5 @@ const Support = () => {
     </>
   );
 };
-
-// Simple ArrowRight component for the link hover effect
-const ArrowRight = ({ className }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M5 12h14"></path>
-    <path d="m12 5 7 7-7 7"></path>
-  </svg>
-);
 
 export default Support;
