@@ -189,14 +189,14 @@ const Support = () => {
                   Enterprise Architecture
                 </h3>
                 <p className="text-slate-500 mb-8 font-medium leading-relaxed flex-grow">
-                  Enterprise SLA customers get direct hotline access to our
+                  Enterprise SLA customers get priority email access to our
                   senior cloud security architects and database administrators.
                 </p>
                 <a
-                  href="tel:+919311299150"
+                  href="mailto:support@neviri.com"
                   className="text-[#0F172A] font-bold hover:text-[#3B82F6] group-hover:underline decoration-2 underline-offset-4 transition-all"
                 >
-                  +91 931-129-9150
+                  support@neviri.com
                 </a>
               </div>
             </div>
