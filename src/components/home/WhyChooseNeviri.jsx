@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { APP_SIGNUP_URL } from "@/config/api";
 import {
   Zap,
   Wallet,
@@ -143,7 +144,7 @@ const WhyChooseNeviri = () => {
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
                 <a
-                  href="https://sng-central.neviri.com/signup"
+                  href={APP_SIGNUP_URL}
                   className="w-full sm:w-auto bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300 flex items-center justify-center group/btn hover:-translate-y-1"
                 >
                   <span>Start Your Free Trial</span>

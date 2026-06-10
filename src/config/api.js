@@ -7,6 +7,14 @@ const API_BASE_URL =
 const AUTH_BASE_URL =
   process.env.NEXT_PUBLIC_AUTH_URL || API_BASE_URL;
 
+// App (dashboard) base URL the marketing site links to for Login / Sign-up.
+// Env-driven so staging/local don't bounce users to production. Falls back to
+// the production app URL when NEXT_PUBLIC_APP_URL is unset.
+const APP_BASE_URL =
+  process.env.NEXT_PUBLIC_APP_URL || "https://sng-central.neviri.com";
+export const APP_LOGIN_URL = `${APP_BASE_URL}/login`;
+export const APP_SIGNUP_URL = `${APP_BASE_URL}/signup`;
+
 export const API_ENDPOINTS = {
   // User ApiNEXT_PUBLIC_API_BASE_URL
   REGISTER: `${AUTH_BASE_URL}/api/v1/user/register`,
