@@ -1,5 +1,9 @@
+// NOTE: NEXT_PUBLIC_* is inlined at BUILD time, not read at runtime — it must be
+// present during `next build`, not just in the deployment env. The fallback (the
+// production API host) keeps the site working if the build env is missing, so a
+// missing var degrades to prod instead of `undefined/api/...` (which 404s).
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL;
+  process.env.NEXT_PUBLIC_API_URL || "https://sng-central-api.neviri.com";
 
 // const API_BASE_URL = "https://console.neviri.com";
 // const API_BASE_URL = "https://stagingapi.neviri.com";
