@@ -25,6 +25,7 @@ import {
   Tag,
   BookOpen,
   Headphones,
+  GraduationCap,
   Globe,
   CheckCircle,
 } from "lucide-react";
@@ -287,6 +288,11 @@ const Navbar = () => {
                     label: "Support",
                     href: "/support",
                     icon: <Headphones className="h-4 w-4" />,
+                  },
+                  {
+                    label: "Knowledge Base",
+                    href: "/knowledge-base",
+                    icon: <GraduationCap className="h-4 w-4" />,
                   },
                 ].map(({ label, href, icon }) => (
                   <Link
@@ -552,6 +558,7 @@ const Navbar = () => {
               { label: "Pricing", href: "/pricing" },
               { label: "Blogs", href: "/blogs" },
               { label: "Support", href: "/support" },
+              { label: "Knowledge Base", href: "/knowledge-base" },
             ].map(({ label, href }) => (
               <Link
                 key={href}
