@@ -15,7 +15,7 @@ const Knowledgebase = () => {
     const categories = [
         {
             name: "Compute",
-            count: 19,
+            count: 1,
             icon: Cpu,
             color: "from-blue-500 to-cyan-500",
             bgColor: "bg-blue-50",
@@ -29,7 +29,7 @@ const Knowledgebase = () => {
         },
         {
             name: "Networking",
-            count: 12,
+            count: 3,
             icon: Network,
             color: "from-emerald-500 to-teal-500",
             bgColor: "bg-emerald-50",
@@ -43,6 +43,11 @@ const Knowledgebase = () => {
                     title: "How to Assign a public IP to a Virtual Machine",
                     description: "Configure and attach public IP addresses to your VM instances.",
                     slug: "assign-public-ip-to-vm"
+                },
+                {
+                    title: "How to create a Router",
+                    description: "Set up and configure a router to manage traffic across your networks.",
+                    slug: "how-to-create-a-router"
                 }
             ]
         }
