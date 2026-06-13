@@ -46,33 +46,6 @@ const CreatePrivateNetworkPage = () => {
                         <p className="text-lg text-slate-500 font-medium leading-relaxed">
                             Step-by-step guide to creating and configuring isolated private networks for your cloud resources on Neviri Cloud.
                         </p>
-
-                        {/* Article Meta */}
-                        <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t border-slate-100">
-                            <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center">
-                                    <User className="h-4 w-4 text-white" />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-semibold text-slate-400">Written by</p>
-                                    <p className="text-sm font-semibold text-[#0F172A]">Neviri Cloud Team</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-slate-400" />
-                                <div>
-                                    <p className="text-xs font-semibold text-slate-400">Last updated</p>
-                                    <p className="text-sm font-semibold text-[#0F172A]">December 15, 2024</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-slate-400" />
-                                <div>
-                                    <p className="text-xs font-semibold text-slate-400">Reading time</p>
-                                    <p className="text-sm font-semibold text-[#0F172A]">4 min read</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Article Content */}
