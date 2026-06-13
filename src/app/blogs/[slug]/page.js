@@ -183,14 +183,6 @@ export default function BlogPage({ params }) {
                   src={block.image}
                   alt={block.heading || "Blog image"}
                   className="w-full rounded-lg border border-[#DDE3EA]"
-                  onError={(e) => {
-                    const sas = process.env.NEXT_PUBLIC_AZURE_BLOG_SAS_URL;
-                    if (sas && !block.image.includes("?")) {
-                      e.currentTarget.src = `${block.image}?${
-                        sas.split("?")[1]
-                      }`;
-                    }
-                  }}
                 />
               </div>
             )}
@@ -538,14 +530,6 @@ export default function BlogPage({ params }) {
                 src={blog.featuredImage}
                 alt={blog.title}
                 className="w-full h-64 md:h-96 object-cover rounded-lg border border-[#DDE3EA]"
-                onError={(e) => {
-                  const sas = process.env.NEXT_PUBLIC_AZURE_BLOG_SAS_URL;
-                  if (sas && !blog.featuredImage.includes("?")) {
-                    e.currentTarget.src = `${blog.featuredImage}?${
-                      sas.split("?")[1]
-                    }`;
-                  }
-                }}
               />
             </div>
           )}
