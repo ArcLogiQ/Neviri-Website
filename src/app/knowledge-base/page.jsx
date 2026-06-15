@@ -29,7 +29,7 @@ const Knowledgebase = () => {
         },
         {
             name: "Networking",
-            count: 3,
+            count: 4,
             icon: Network,
             color: "from-emerald-500 to-teal-500",
             bgColor: "bg-emerald-50",
@@ -48,6 +48,11 @@ const Knowledgebase = () => {
                     title: "How to create a Router",
                     description: "Set up and configure a router to manage traffic across your networks.",
                     slug: "how-to-create-a-router"
+                },
+                {
+                    title: "How to attach a Private Network to a Router",
+                    description: "Connect a private network's subnet to a router so its VMs can reach external networks.",
+                    slug: "how-to-attach-a-private-network-to-a-router"
                 }
             ]
         }
