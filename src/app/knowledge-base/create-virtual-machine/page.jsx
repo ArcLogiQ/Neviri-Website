@@ -62,8 +62,8 @@ const CreateVirtualMachinePage = () => {
                                     <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Login to the Neviri Dashboard</h2>
                                     <p className="text-slate-600 leading-relaxed">
                                         Navigate to{" "}
-                                        <a href="https://cloud.neviri.com" className="text-sky-600 font-semibold hover:underline">
-                                            cloud.neviri.com
+                                        <a href="https://neviri.com" className="text-sky-600 font-semibold hover:underline">
+                                            https://neviri.com
                                         </a>{" "}
                                         and log in using your email address and password. If you have two-factor authentication enabled,
                                         you'll need to complete that step as well.
