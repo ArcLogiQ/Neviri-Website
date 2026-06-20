@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import BlogNavbar from "@/components/blogs/BlogNavbar";
+import Navbar from "@/components/common/Navbar";
 
 export const metadata = {
   title:
@@ -35,10 +35,8 @@ function Bullets({ items }) {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C] pt-16">
-      <div className="fixed top-0 left-0 right-0 z-20">
-        <BlogNavbar />
-      </div>
+    <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C]">
+      <Navbar />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
@@ -61,6 +59,13 @@ export default function Page() {
               more predictable pricing.
             </p>
           </header>
+
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/blogs/AWS%20RDS%20Alternatives%20for%20Startups%20in%202026.png"
+            alt="AWS RDS Alternatives for Startups in 2026"
+            className="w-full rounded-lg border border-[#DDE3EA] mb-10"
+          />
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-[#1A1F2C] mb-4">
