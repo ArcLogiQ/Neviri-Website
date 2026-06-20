@@ -20,8 +20,27 @@ const categories = [
   "Cloud",
 ];
 
+const STATIC_BLOGS = [
+  {
+    id: "static-aws-rds-alternatives-2026",
+    isStatic: true,
+    slug: "aws-rds-alternatives-for-startups-in-2026",
+    title:
+      "AWS RDS Alternatives for Startups in 2026: Best Managed Databases for Faster Growth",
+    excerpt:
+      "Compare the best managed database alternatives to AWS RDS for startups in 2026 — Neviri Cloud, Neon, Supabase, PlanetScale, Crunchy Bridge, and DigitalOcean.",
+    category: "database",
+    createdAt: "2026-01-15T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 8,
+    views: 0,
+    tags: ["database", "postgresql", "startups"],
+    isBookmarked: false,
+  },
+];
+
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(STATIC_BLOGS);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("latest");
@@ -35,13 +54,16 @@ export default function BlogPage() {
         setLoading(true);
         const res = await blogsAPI.getPublic();
         if (res.data && Array.isArray(res.data)) {
-          setBlogs(res.data);
+          const apiBlogs = res.data.filter(
+            (b) => !STATIC_BLOGS.some((s) => s.slug === b.slug),
+          );
+          setBlogs([...STATIC_BLOGS, ...apiBlogs]);
         } else {
-          setBlogs([]);
+          setBlogs(STATIC_BLOGS);
         }
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setBlogs([]);
+        setBlogs(STATIC_BLOGS);
       } finally {
         setLoading(false);
       }
@@ -73,6 +95,9 @@ export default function BlogPage() {
           return 0;
       }
     });
+
+  const featuredBlog = filteredBlogs.find((b) => !b.isStatic) || null;
+  const gridBlogs = filteredBlogs.filter((b) => b !== featuredBlog);
 
   const toggleBookmark = (blogId) => {
     setBlogs(
@@ -235,7 +260,7 @@ export default function BlogPage() {
           {activeTab === "all" && !loading && (
             <div className="space-y-12">
               {/* Featured Blog */}
-              {filteredBlogs.length > 0 && (
+              {featuredBlog && (
                 <div className="mb-16">
                   <h2 className="text-2xl font-bold text-[#0F172A] mb-6 flex items-center gap-3 tracking-tight">
                     <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></span>
@@ -247,10 +272,10 @@ export default function BlogPage() {
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={
-                            filteredBlogs[0].featuredImage ||
+                            featuredBlog.featuredImage ||
                             "/api/placeholder/800/400"
                           }
-                          alt={filteredBlogs[0].title}
+                          alt={featuredBlog.title}
                           className="h-64 md:h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -259,7 +284,7 @@ export default function BlogPage() {
                         <div>
                           <div className="flex items-center space-x-3 mb-6">
                             <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
-                              {filteredBlogs[0].category}
+                              {featuredBlog.category}
                             </span>
                             <div className="flex items-center text-sm font-semibold text-[#64748B]">
                               <svg
@@ -275,22 +300,22 @@ export default function BlogPage() {
                                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                                 />
                               </svg>
-                              {formatDate(filteredBlogs[0].createdAt)}
+                              {formatDate(featuredBlog.createdAt)}
                             </div>
                           </div>
                           <h3 className="text-3xl lg:text-4xl font-extrabold text-[#0F172A] mb-4 tracking-tight leading-tight group-hover:text-[#3B82F6] transition-colors">
-                            {filteredBlogs[0].title}
+                            {featuredBlog.title}
                           </h3>
                           <p className="text-[#64748B] mb-8 leading-relaxed font-medium text-lg">
-                            {filteredBlogs[0].excerpt}
+                            {featuredBlog.excerpt}
                           </p>
                           <div className="flex items-center space-x-6 text-sm font-semibold text-[#64748B] mb-8 border-b border-[#E2E8F0] pb-8">
                             <div className="flex items-center space-x-2">
                               <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#06B6D4] flex items-center justify-center text-white text-xs">
-                                {(filteredBlogs[0].author?.name || "U")[0]}
+                                {(featuredBlog.author?.name || "U")[0]}
                               </div>
                               <span className="text-[#0F172A]">
-                                {filteredBlogs[0].author?.name || "Unknown"}
+                                {featuredBlog.author?.name || "Unknown"}
                               </span>
                             </div>
                             <div className="flex items-center space-x-1.5">
@@ -308,7 +333,7 @@ export default function BlogPage() {
                                 />
                               </svg>
                               <span>
-                                {filteredBlogs[0].readTime || 5} min read
+                                {featuredBlog.readTime || 5} min read
                               </span>
                             </div>
                             <div className="flex items-center space-x-1.5">
@@ -332,14 +357,14 @@ export default function BlogPage() {
                                 />
                               </svg>
                               <span>
-                                {(filteredBlogs[0].views || 0).toLocaleString()}
+                                {(featuredBlog.views || 0).toLocaleString()}
                               </span>
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex flex-wrap gap-2">
-                            {filteredBlogs[0].tags?.slice(0, 3).map((tag) => (
+                            {featuredBlog.tags?.slice(0, 3).map((tag) => (
                               <span
                                 key={tag}
                                 className="inline-block bg-[#F8FAFC] text-[#64748B] px-3 py-1 rounded-full text-xs font-bold border border-[#E2E8F0]"
@@ -351,13 +376,13 @@ export default function BlogPage() {
                           <div className="flex items-center space-x-3">
                             <button
                               onClick={() =>
-                                toggleBookmark(filteredBlogs[0].id)
+                                toggleBookmark(featuredBlog.id)
                               }
                               className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-[#64748B] hover:text-[#3B82F6] hover:border-[#3B82F6] transition-all cursor-pointer"
                             >
                               <svg
                                 className={`h-5 w-5 ${
-                                  filteredBlogs[0].isBookmarked
+                                  featuredBlog.isBookmarked
                                     ? "fill-current text-[#3B82F6]"
                                     : ""
                                 }`}
@@ -373,7 +398,7 @@ export default function BlogPage() {
                                 />
                               </svg>
                             </button>
-                            <Link href={`/blogs/${filteredBlogs[0].slug}`}>
+                            <Link href={`/blogs/${featuredBlog.slug}`}>
                               <button className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-6 py-3 rounded-xl font-bold shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.5)] transition-all flex items-center gap-2 cursor-pointer hover:-translate-y-0.5">
                                 Read Article
                                 <svg
@@ -406,47 +431,49 @@ export default function BlogPage() {
                     Latest Publications
                   </h2>
                   <p className="text-sm font-semibold text-[#64748B] bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#E2E8F0]">
-                    {filteredBlogs.length} articles found
+                    {gridBlogs.length} articles found
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredBlogs.slice(1).map((blog) => (
+                  {gridBlogs.map((blog) => (
                     <div
                       key={blog.id}
                       className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 group flex flex-col"
                     >
-                      <div className="relative overflow-hidden">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={blog.featuredImage || "/api/placeholder/400/200"}
-                          alt={blog.title}
-                          className="h-52 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <button
-                          onClick={() => toggleBookmark(blog.id)}
-                          className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-[#0F172A] p-2.5 rounded-xl shadow-sm transition-colors cursor-pointer"
-                        >
-                          <svg
-                            className={`h-4 w-4 ${
-                              blog.isBookmarked
-                                ? "fill-current text-[#3B82F6]"
-                                : ""
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
+                      {!blog.isStatic && (
+                        <div className="relative overflow-hidden">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={blog.featuredImage || "/api/placeholder/400/200"}
+                            alt={blog.title}
+                            className="h-52 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <button
+                            onClick={() => toggleBookmark(blog.id)}
+                            className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-[#0F172A] p-2.5 rounded-xl shadow-sm transition-colors cursor-pointer"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
+                            <svg
+                              className={`h-4 w-4 ${
+                                blog.isBookmarked
+                                  ? "fill-current text-[#3B82F6]"
+                                  : ""
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
                       <div className="p-6 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-4">
                           <span className="inline-block bg-[#EFF6FF] text-[#3B82F6] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#BFDBFE]">
