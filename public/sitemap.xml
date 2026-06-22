@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://neviri.com/</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://neviri.com/app-deployment</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/pricing</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/blogs</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/support</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/compute/shared-cpu</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/compute/virtual-machine</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/compute/ssh-keys</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/compute/monitoring</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/networking/load-balancer</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/networking/vpc</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/networking/cloud-firewall</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/networking/ssl-certificates</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/storage/block-storage</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/storage/object-storage</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/database/mongodb</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/database/mysql</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/database/postgresql</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/solutions</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/about</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/terms</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/privacy</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/cookie-policy</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base/create-virtual-machine</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base/create-virtual-private-network</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base/assign-public-ip-to-vm</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base/how-to-create-a-router</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://neviri.com/knowledge-base/how-to-attach-a-private-network-to-a-router</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://neviri.com/blogs/aws-rds-alternatives-for-startups-in-2026</loc>
+  <lastmod>2026-06-20T13:23:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+</urlset>
