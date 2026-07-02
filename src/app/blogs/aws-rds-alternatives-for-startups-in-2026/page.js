@@ -548,22 +548,6 @@ export default function Page() {
               development speed.
             </p>
           </section>
-
-          <section className="mb-12">
-            <div className="bg-sky-600/10 border border-sky-200 rounded-xl p-6 text-center">
-              <p className="text-lg text-[#1A1F2C] font-semibold mb-4">
-                Get started with Neviri Cloud and claim your free $100 credit.
-              </p>
-              <Link
-                href={SIGNUP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-              >
-                Claim Your Neviri Cloud Startup Credits
-              </Link>
-            </div>
-          </section>
         </article>
       </div>
     </div>
