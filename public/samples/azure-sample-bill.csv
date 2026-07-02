@@ -1,0 +1,15 @@
+MeterCategory,MeterSubCategory,MeterName,Quantity,UnitOfMeasure,CostInBillingCurrency
+Virtual Machines,Dv3/DSv3 Series,D2s v3,730,1 Hour,70.08
+Virtual Machines,BS Series,B2s,1460,1 Hour,60.74
+Storage,Premium SSD Managed Disks,P10 LRS Disk,2,1/Month,35.42
+Storage,General Block Blob v2 Hierarchical Namespace,Hot LRS Data Stored,500,1 GB/Month,10.40
+Storage,General Block Blob v2 Hierarchical Namespace,Hot Write Operations,850,10K,4.25
+Storage,Standard SSD Managed Disks,Disk Snapshots LRS,150,1 GB/Month,6.83
+Bandwidth,Routing Preference: Microsoft Global Network,Standard Data Transfer Out,450,1 GB,39.15
+IP Addresses,Public IP Addresses,Standard Static Public IP,1460,1 Hour,7.30
+Load Balancer,Standard,Included LB Rules and Health Probes,730,1 Hour,18.25
+Azure Database for MySQL,Flexible Server General Purpose,2 vCore,730,1 Hour,95.00
+Azure App Service,Standard Plan,S1,730,1 Hour,69.35
+Azure DNS,Public Zones,Public Zone,1,1/Month,0.50
+Key Vault,Standard,Operations,10000,10K,3.10
+Backup,Azure VM Backup,GRS Protected Storage,100,1 GB/Month,8.00
