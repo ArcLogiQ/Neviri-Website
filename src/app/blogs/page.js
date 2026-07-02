@@ -37,6 +37,20 @@ const STATIC_BLOGS = [
     tags: ["database", "postgresql", "startups"],
     isBookmarked: false,
   },
+  {
+    id: "static-cloud-waste-2026",
+    isStatic: true,
+    slug: "cloud-isnt-expensive-waste-is",
+    title: "Cloud Isn't Expensive. Waste Is.",
+    excerpt: "Why your cloud bill isn't the problem—your cloud habits are.",
+    category: "Cloud Cost Optimization",
+    createdAt: "2026-07-02T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 12,
+    views: 0,
+    tags: ["finops", "cloud-cost-optimization", "cloud-waste", "cloud-governance"],
+    isBookmarked: false,
+  },
 ];
 
 export default function BlogPage() {
@@ -164,31 +178,28 @@ export default function BlogPage() {
           <div className="mb-10 border-b border-[#E2E8F0] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="flex space-x-8 overflow-x-auto pb-2 sm:pb-0">
               <button
-                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
-                  activeTab === "all"
-                    ? "border-[#3B82F6] text-[#3B82F6]"
-                    : "border-transparent text-[#64748B] hover:text-[#0F172A]"
-                }`}
+                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${activeTab === "all"
+                  ? "border-[#3B82F6] text-[#3B82F6]"
+                  : "border-transparent text-[#64748B] hover:text-[#0F172A]"
+                  }`}
                 onClick={() => setActiveTab("all")}
               >
                 All Blogs
               </button>
               <button
-                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
-                  activeTab === "trending"
-                    ? "border-[#3B82F6] text-[#3B82F6]"
-                    : "border-transparent text-[#64748B] hover:text-[#0F172A]"
-                }`}
+                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${activeTab === "trending"
+                  ? "border-[#3B82F6] text-[#3B82F6]"
+                  : "border-transparent text-[#64748B] hover:text-[#0F172A]"
+                  }`}
                 onClick={() => setActiveTab("trending")}
               >
                 Trending
               </button>
               <button
-                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
-                  activeTab === "bookmarked"
-                    ? "border-[#3B82F6] text-[#3B82F6]"
-                    : "border-transparent text-[#64748B] hover:text-[#0F172A]"
-                }`}
+                className={`px-1 pb-4 font-bold text-lg border-b-2 transition-colors cursor-pointer whitespace-nowrap ${activeTab === "bookmarked"
+                  ? "border-[#3B82F6] text-[#3B82F6]"
+                  : "border-transparent text-[#64748B] hover:text-[#0F172A]"
+                  }`}
                 onClick={() => setActiveTab("bookmarked")}
               >
                 Bookmarked
@@ -381,11 +392,10 @@ export default function BlogPage() {
                               className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-[#64748B] hover:text-[#3B82F6] hover:border-[#3B82F6] transition-all cursor-pointer"
                             >
                               <svg
-                                className={`h-5 w-5 ${
-                                  featuredBlog.isBookmarked
-                                    ? "fill-current text-[#3B82F6]"
-                                    : ""
-                                }`}
+                                className={`h-5 w-5 ${featuredBlog.isBookmarked
+                                  ? "fill-current text-[#3B82F6]"
+                                  : ""
+                                  }`}
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -455,11 +465,10 @@ export default function BlogPage() {
                             className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-[#0F172A] p-2.5 rounded-xl shadow-sm transition-colors cursor-pointer"
                           >
                             <svg
-                              className={`h-4 w-4 ${
-                                blog.isBookmarked
-                                  ? "fill-current text-[#3B82F6]"
-                                  : ""
-                              }`}
+                              className={`h-4 w-4 ${blog.isBookmarked
+                                ? "fill-current text-[#3B82F6]"
+                                : ""
+                                }`}
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"

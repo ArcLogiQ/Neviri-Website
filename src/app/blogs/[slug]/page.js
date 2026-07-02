@@ -387,11 +387,10 @@ export default function BlogPage({ params }) {
             <div className="flex items-center space-x-2">
               <button
                 onClick={handleLike}
-                className={`p-2 rounded-lg transition-colors ${
-                  isLiked
+                className={`p-2 rounded-lg transition-colors ${isLiked
                     ? "bg-[#C12828]/20 text-[#C12828] border border-[#C12828]/30"
                     : "bg-[#E5EAF1] hover:bg-[#DDE3EA] text-[#4B5565] border border-[#DDE3EA]"
-                }`}
+                  }`}
               >
                 <svg
                   className="h-4 w-4"
@@ -413,11 +412,10 @@ export default function BlogPage({ params }) {
 
               <button
                 onClick={handleBookmark}
-                className={`p-2 rounded-lg transition-colors ${
-                  isBookmarked
+                className={`p-2 rounded-lg transition-colors ${isBookmarked
                     ? "bg-[#2563EB]/20 text-sky-600 border border-[#2563EB]/30"
                     : "bg-[#E5EAF1] hover:bg-[#DDE3EA] text-[#4B5565] border border-[#DDE3EA]"
-                }`}
+                  }`}
               >
                 <svg
                   className="h-4 w-4"
@@ -624,11 +622,10 @@ export default function BlogPage({ params }) {
                   {comments.map((comment) => (
                     <div
                       key={comment.id}
-                      className={`flex space-x-4 p-4 rounded-lg transition-all duration-700 ${
-                        highlightedCommentId === comment.id
+                      className={`flex space-x-4 p-4 rounded-lg transition-all duration-700 ${highlightedCommentId === comment.id
                           ? "bg-[#936700]/10 border border-[#936700]/30"
                           : "bg-[#F7F9FC] border border-[#DDE3EA]"
-                      }`}
+                        }`}
                     >
                       <div className="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                         {comment.user?.name
