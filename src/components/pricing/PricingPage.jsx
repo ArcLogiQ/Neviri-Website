@@ -15,8 +15,10 @@ import {
   Wifi,
   ChevronRight,
   Cpu,
-  ChevronDown
+  ChevronDown,
+  Calculator
 } from "lucide-react";
+import BillAnalyzer from "./BillAnalyzer";
 
 const VM_PRICING = [
   { flavor: "gen2.nano",    vcpu: 1,  ram: 1,  priceMo: 6.00,   priceHr: 0.008 },
@@ -52,6 +54,7 @@ const TABS = [
   { label: "Networking",         icon: Globe },
   { label: "Storage & Security", icon: HardDrive },
   { label: "Bandwidth Analysis", icon: BarChart2 },
+  { label: "Compare Your Bill",  icon: Calculator },
 ];
 
 const QUICK_SELECT_OPTIONS = [25];
@@ -498,6 +501,9 @@ export default function PricingPage() {
             </div>
           </section>
         )}
+
+        {/* ══════════ COMPARE YOUR BILL ══════════ */}
+        {activeTab === "Compare Your Bill" && <BillAnalyzer />}
 
         {/* ── FAQ ── */}
         <section className="border-t border-gray-200 pt-12">

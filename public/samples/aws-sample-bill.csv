@@ -1,0 +1,18 @@
+RecordType,ProductCode,ProductName,UsageType,ItemDescription,UsageQuantity,TotalCost
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-BoxUsage:t3.medium,"$0.0416 per On Demand Linux t3.medium Instance Hour",1460,60.74
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-BoxUsage:m5.large,"$0.096 per On Demand Linux m5.large Instance Hour",730,70.08
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-EBS:VolumeUsage.gp3,"$0.08 per GB-month of General Purpose (gp3) provisioned storage",200,16.00
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-EBS:SnapshotUsage,"$0.05 per GB-month of snapshot data stored",150,7.50
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-DataTransfer-Out-Bytes,"$0.09 per GB data transfer out beyond the global free tier",450,40.50
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-PublicIPv4:InUseAddress,"$0.005 per In-use public IPv4 address per hour",1460,7.30
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,USE1-NatGateway-Hours,"$0.045 per NAT Gateway Hour",730,32.85
+LineItem,AmazonS3,Amazon Simple Storage Service,USE1-TimedStorage-ByteHrs,"$0.023 per GB-month of storage used in Standard",500,11.50
+LineItem,AmazonS3,Amazon Simple Storage Service,USE1-Requests-Tier1,"$0.005 per 1000 PUT/COPY/POST/LIST requests",1200000,6.00
+LineItem,AmazonRDS,Amazon Relational Database Service,USE1-InstanceUsage:db.t3.medium,"MySQL Community Edition db.t3.medium Single-AZ instance hour",730,49.64
+LineItem,AmazonRDS,Amazon Relational Database Service,USE1-RDS:StorageUsage,"$0.115 per GB-month of provisioned gp2 storage running MySQL",100,11.50
+LineItem,AWSELB,Elastic Load Balancing,USE1-LoadBalancerUsage,"$0.0225 per Application LoadBalancer-hour",730,16.43
+LineItem,AWSLambda,AWS Lambda,USE1-Request,"$0.20 per 1M requests",5000000,1.00
+LineItem,AmazonCloudFront,Amazon CloudFront,US-DataTransfer-Out-Bytes,"$0.085 per GB data transfer out",120,10.20
+LineItem,AmazonRoute53,Amazon Route 53,HostedZone,"$0.50 per hosted zone",3,1.50
+LineItem,AmazonCloudWatch,Amazon CloudWatch,USE1-CW:MetricsUsage,"$0.30 per custom metric per month",28,8.40
+LineItem,AmazonEC2,Amazon Elastic Compute Cloud,Tax,"US sales tax on AWS usage",0,25.00
