@@ -20,16 +20,24 @@ import {
 } from "lucide-react";
 import BillAnalyzer from "./BillAnalyzer";
 
-const VM_PRICING = [
-  { flavor: "gen2.nano",    vcpu: 1,  ram: 1,  priceMo: 6.00,   priceHr: 0.008 },
-  { flavor: "gen2.micro",   vcpu: 2,  ram: 2,  priceMo: 9.03,   priceHr: 0.013 },
-  { flavor: "gen2.small",   vcpu: 2,  ram: 4,  priceMo: 12.02,  priceHr: 0.017 },
-  { flavor: "gen2.medium",  vcpu: 4,  ram: 4,  priceMo: 17.23,  priceHr: 0.024 },
-  { flavor: "gen2.medium2", vcpu: 4,  ram: 6,  priceMo: 21.01,  priceHr: 0.029 },
-  { flavor: "gen2.large",   vcpu: 4,  ram: 8,  priceMo: 26.12,  priceHr: 0.036 },
-  { flavor: "gen2.huge",    vcpu: 8,  ram: 16, priceMo: 41.02,  priceHr: 0.057 },
-  { flavor: "gen2.giant",   vcpu: 16, ram: 32, priceMo: 86.66,  priceHr: 0.120 },
-  { flavor: "gen32.giant",  vcpu: 32, ram: 64, priceMo: 170.00, priceHr: 0.236 },
+// Basic Burstable Pricing (from PDF Table 5)
+const BASIC_VM_PRICING = [
+  { flavor: "t2.nano",   vcpu: 1, ram: 0.5, priceMo: 4.26,   priceHr: 4.26 / 730 },
+  { flavor: "t2.micro",  vcpu: 1, ram: 1,   priceMo: 8.53,   priceHr: 8.53 / 730 },
+  { flavor: "t2.small",  vcpu: 1, ram: 2,   priceMo: 17.05,  priceHr: 17.05 / 730 },
+  { flavor: "t2.medium", vcpu: 2, ram: 4,   priceMo: 34.11,  priceHr: 34.11 / 730 },
+  { flavor: "t2.large",  vcpu: 4, ram: 8,   priceMo: 68.21,  priceHr: 68.21 / 730 },
+  { flavor: "t2.xlarge", vcpu: 8, ram: 16,  priceMo: 136.42, priceHr: 136.42 / 730 },
+];
+
+// Premium Compute Pricing (from PDF Table 4)
+const PREMIUM_VM_PRICING = [
+  { flavor: "c5.large",    vcpu: 2,  ram: 4,  priceMo: 57.23,   priceHr: 57.23 / 730 },
+  { flavor: "c5.xlarge",   vcpu: 4,  ram: 8,  priceMo: 114.46,  priceHr: 114.46 / 730 },
+  { flavor: "c5.2xlarge",  vcpu: 8,  ram: 16, priceMo: 228.93,  priceHr: 228.93 / 730 },
+  { flavor: "c5.4xlarge",  vcpu: 16, ram: 32, priceMo: 457.86,  priceHr: 457.86 / 730 },
+  { flavor: "c5.9xlarge",  vcpu: 36, ram: 72, priceMo: 1030.18, priceHr: 1030.18 / 730 },
+  { flavor: "c5.12xlarge", vcpu: 48, ram: 96, priceMo: 1373.57, priceHr: 1373.57 / 730 },
 ];
 
 const BANDWIDTH_COMPARISON = [
@@ -58,7 +66,7 @@ const TABS = [
 ];
 
 const QUICK_SELECT_OPTIONS = [25];
-const BASE_INCLUDED_STORAGE = 25; // 25GB is included in the base VM price
+const BASE_INCLUDED_STORAGE = 25;
 
 function formatDelta(val) {
   if (val === 0) return "$0.00";
@@ -88,14 +96,12 @@ function PillGroup({ label, options, value, onChange }) {
   );
 }
 
-// ── CUSTOM ROW COMPONENT (Updated UI) ──
 function PricingRow({ vm, billing }) {
   const [storageGb, setStorageGb] = useState(BASE_INCLUDED_STORAGE);
   const [isOpen, setIsOpen] = useState(false);
   const [customInput, setCustomInput] = useState("");
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -120,7 +126,6 @@ function PricingRow({ vm, billing }) {
     }
   };
 
-  // Math Logic: Only charge for storage ABOVE the included 25GB
   const extraGb = Math.max(0, storageGb - BASE_INCLUDED_STORAGE);
   const extraCostMo = extraGb * 730 * 0.00011;
   const extraCostHr = extraGb * 0.00011;
@@ -138,7 +143,6 @@ function PricingRow({ vm, billing }) {
       </td>
       <td className="px-6 py-4 text-center font-medium text-slate-700">{vm.ram} GB</td>
       
-      {/* ── UPDATED DROPDOWN MATCHING SCREENSHOT ── */}
       <td className="px-6 py-4 text-center relative" ref={dropdownRef}>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -155,8 +159,6 @@ function PricingRow({ vm, billing }) {
 
         {isOpen && (
           <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-white rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 z-[999] p-5 text-left animate-in fade-in zoom-in-95 duration-200">
-            
-            {/* Quick Select Section */}
             <div className="mb-5">
               <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Quick Select</p>
               <div className="grid grid-cols-1 gap-2">
@@ -172,7 +174,6 @@ function PricingRow({ vm, billing }) {
               </div>
             </div>
 
-            {/* Custom Storage Section */}
             <div>
               <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Custom Storage</p>
               <div className="flex flex-col gap-3">
@@ -198,7 +199,6 @@ function PricingRow({ vm, billing }) {
                 </button>
               </div>
             </div>
-
           </div>
         )}
       </td>
@@ -214,7 +214,10 @@ function PricingRow({ vm, billing }) {
 export default function PricingPage() {
   const [activeTab, setActiveTab] = useState("Compute");
   const [billing, setBilling]     = useState("Monthly");
-  const [workload, setWorkload]   = useState("General Purpose");
+  const [workload, setWorkload]   = useState("Basic");
+
+  // Determine which data source to use based on the selected workload pill
+  const activePricingData = workload === "Premium" ? PREMIUM_VM_PRICING : BASIC_VM_PRICING;
 
   const gridBg = {
     backgroundColor: "#f8fafc",
@@ -282,12 +285,21 @@ export default function PricingPage() {
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-5 px-5 py-4 bg-white border border-gray-200 rounded-2xl shadow-sm">
-              <PillGroup label="Workload" options={["General Purpose"]} value={workload} onChange={setWorkload} />
+              <PillGroup 
+                label="Workload" 
+                options={["Basic", "Premium"]} 
+                value={workload} 
+                onChange={setWorkload} 
+              />
               <div className="h-5 w-px bg-gray-200 hidden md:block" />
-              <PillGroup label="Billing" options={["Hourly", "Monthly"]} value={billing} onChange={setBilling} />
+              <PillGroup 
+                label="Billing" 
+                options={["Hourly", "Monthly"]} 
+                value={billing} 
+                onChange={setBilling} 
+              />
             </div>
 
-            {/* Overflow-visible required here to stop dropdowns from cutting off */}
             <div className="bg-white border border-gray-200 rounded-2xl shadow-sm">
               <div className="overflow-visible">
                 <table className="w-full text-sm">
@@ -301,7 +313,7 @@ export default function PricingPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {VM_PRICING.map((vm) => (
+                    {activePricingData.map((vm) => (
                       <PricingRow key={vm.flavor} vm={vm} billing={billing} />
                     ))}
                   </tbody>
@@ -377,8 +389,6 @@ export default function PricingPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Standalone Storage Rate */}
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-sky-200 transition-all duration-200 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="p-2.5 bg-sky-50 rounded-xl border border-sky-100">
@@ -403,7 +413,6 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              {/* Backups */}
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-sky-200 transition-all duration-200">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="p-2.5 bg-sky-50 rounded-xl border border-sky-100">
@@ -425,7 +434,6 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* SSL + Load Balancers */}
             <div className="relative bg-gradient-to-r from-sky-600 to-sky-700 rounded-2xl p-8 overflow-hidden shadow-lg shadow-sky-200">
               <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-[0.08] pointer-events-none">
                 <Lock className="w-40 h-40" />
@@ -490,13 +498,6 @@ export default function PricingPage() {
                     ))}
                   </tbody>
                 </table>
-              </div>
-              <div className="px-6 py-4 bg-red-50 border-t border-red-100 flex items-start gap-3">
-                <span className="text-red-400 shrink-0 mt-0.5">⚠️</span>
-                <p className="text-xs text-red-600 font-medium leading-relaxed">
-                  <span className="font-bold">Note:</span> At 1 TB/mo Neviri costs ~$45 vs DO&apos;s ~$5 (9× more). At 10 TB: ~$495 vs ~$95.
-                  Fix: lower overage to $0.01–$0.015/GB and include at least 500 GB free.
-                </p>
               </div>
             </div>
           </section>
