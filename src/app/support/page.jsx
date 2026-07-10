@@ -9,6 +9,7 @@ import {
   Database,
 } from "lucide-react";
 import Navbar from "@/components/common/Navbar";
+import Turnstile from "@/components/common/Turnstile";
 import { EMAIL_ENDPOINT } from "@/config/api";
 import Head from "next/head";
 
@@ -21,6 +22,9 @@ const Support = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  // CAPTCHA: token from the Turnstile widget; the form can't submit without it.
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaResetKey, setCaptchaResetKey] = useState(0);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,13 +44,27 @@ const Support = () => {
       return;
     }
 
+    if (!captchaToken) {
+      toast.error("Please complete the CAPTCHA before submitting");
+      setLoading(false);
+      return;
+    }
+
+    // Turnstile tokens are single-use: force a fresh challenge on any failure.
+    const resetCaptcha = () => {
+      setCaptchaToken("");
+      setCaptchaResetKey((k) => k + 1);
+    };
+
     try {
       const response = await fetch(EMAIL_ENDPOINT.SEND_EMAIL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        // turnstileToken must be verified server-side (Cloudflare siteverify)
+        // by the backend /support/send-email endpoint.
+        body: JSON.stringify({ ...formData, turnstileToken: captchaToken }),
       });
 
       const data = await response.json();
@@ -59,11 +77,13 @@ const Support = () => {
         }, 1000);
       } else {
         toast.error(data.detail || data.message || "Failed to submit. Please try again.");
+        resetCaptcha();
         setLoading(false);
       }
     } catch (error) {
       console.error("Support form error:", error);
       toast.error("An error occurred. Please try again later.");
+      resetCaptcha();
       setLoading(false);
     }
   };
@@ -262,10 +282,18 @@ const Support = () => {
                       ></textarea>
                     </div>
 
+                    <div className="pt-1">
+                      <Turnstile
+                        onVerify={setCaptchaToken}
+                        onExpire={() => setCaptchaToken("")}
+                        resetKey={captchaResetKey}
+                      />
+                    </div>
+
                     <button
                       type="submit"
-                      disabled={loading}
-                      className="w-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white font-bold py-4 rounded-xl hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5 transition-all duration-300 shadow-lg disabled:opacity-50 cursor-pointer flex justify-center items-center gap-2 mt-4"
+                      disabled={loading || !captchaToken}
+                      className="w-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white font-bold py-4 rounded-xl hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex justify-center items-center gap-2 mt-4"
                     >
                       {loading ? "Transmitting..." : "Submit Support Request"}
                     </button>
