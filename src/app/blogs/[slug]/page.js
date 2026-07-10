@@ -5,6 +5,7 @@ import { blogsAPI } from "@/config/api";
 import toast from "react-hot-toast";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import BlogNavbar from "@/components/blogs/BlogNavbar";
+import { displayViews } from "@/lib/blogViews";
 
 export default function BlogPage({ params }) {
   const [blog, setBlog] = useState(null);
@@ -377,7 +378,7 @@ export default function BlogPage({ params }) {
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                      <span>{(blog?.views || 0).toLocaleString()}</span>
+                      <span>{displayViews(blog).toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
