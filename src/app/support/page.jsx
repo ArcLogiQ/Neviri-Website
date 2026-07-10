@@ -198,7 +198,7 @@ const Support = () => {
                           onChange={handleChange}
                           required
                           className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-[#0F172A] focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] outline-none transition-all font-medium"
-                          placeholder="Jane Doe"
+                          placeholder="Your full name"
                         />
                       </div>
 
@@ -213,7 +213,7 @@ const Support = () => {
                           onChange={handleChange}
                           required
                           className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-[#0F172A] focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] outline-none transition-all font-medium"
-                          placeholder="jane@company.com"
+                          placeholder="you@yourcompany.com"
                         />
                       </div>
                     </div>
@@ -258,7 +258,7 @@ const Support = () => {
                         required
                         rows="5"
                         className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-[#0F172A] focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] outline-none transition-all font-medium resize-none"
-                        placeholder="Please include region, instance sizes, and relevant error logs..."
+                        placeholder="Describe your issue — include the affected resource (VM, database, or load balancer name), its region, and any error messages or logs so our team can help faster."
                       ></textarea>
                     </div>
 

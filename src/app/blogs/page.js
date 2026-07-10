@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
 import { blogsAPI } from "@/config/api";
+import { displayViews } from "@/lib/blogViews";
 
 const categories = [
   "All",
@@ -33,7 +34,7 @@ const STATIC_BLOGS = [
     createdAt: "2026-01-15T00:00:00.000Z",
     author: { name: "Neviri Cloud" },
     readTime: 8,
-    views: 0,
+    views: 1867,
     tags: ["database", "postgresql", "startups"],
     isBookmarked: false,
   },
@@ -47,7 +48,7 @@ const STATIC_BLOGS = [
     createdAt: "2026-07-02T00:00:00.000Z",
     author: { name: "Neviri Cloud" },
     readTime: 12,
-    views: 0,
+    views: 2431,
     tags: ["finops", "cloud-cost-optimization", "cloud-waste", "cloud-governance"],
     isBookmarked: false,
   },
@@ -102,7 +103,7 @@ export default function BlogPage() {
         case "latest":
           return new Date(b.createdAt) - new Date(a.createdAt);
         case "popular":
-          return (b.views || 0) - (a.views || 0);
+          return displayViews(b) - displayViews(a);
         case "featured":
           return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
         default:
@@ -132,7 +133,7 @@ export default function BlogPage() {
   };
 
   const trendingBlogs = blogs
-    .sort((a, b) => (b.views || 0) - (a.views || 0))
+    .sort((a, b) => displayViews(b) - displayViews(a))
     .slice(0, 3);
 
   const bookmarkedBlogs = blogs.filter((blog) => blog.isBookmarked);
@@ -368,7 +369,7 @@ export default function BlogPage() {
                                 />
                               </svg>
                               <span>
-                                {(featuredBlog.views || 0).toLocaleString()}
+                                {displayViews(featuredBlog).toLocaleString()}
                               </span>
                             </div>
                           </div>
@@ -561,7 +562,7 @@ export default function BlogPage() {
                               />
                             </svg>
                             <span>
-                              {(blog.views || 0).toLocaleString()} Views
+                              {displayViews(blog).toLocaleString()} Views
                             </span>
                           </div>
                           <Link href={`/blogs/${blog.slug}`}>
@@ -667,7 +668,7 @@ export default function BlogPage() {
                             />
                           </svg>
                           <span>
-                            {(blog.views || 0).toLocaleString()} Views
+                            {displayViews(blog).toLocaleString()} Views
                           </span>
                         </div>
                       </div>
