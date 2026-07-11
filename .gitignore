@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 # But not the example
 !.env.example
+# ...and not .env.production: it holds only the PUBLIC Turnstile site key, which
+# must be inlined at build time (NEXT_PUBLIC_*), so it is committed on purpose.
+!.env.production
 
 # vercel
 .vercel
