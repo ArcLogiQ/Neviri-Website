@@ -4,6 +4,7 @@ import {
     BookOpen,
     ChevronRight,
     Cpu,
+    Database,
     Network,
     Search,
     ArrowRight
@@ -53,6 +54,20 @@ const Knowledgebase = () => {
                     title: "How to attach a Private Network to a Router",
                     description: "Connect a private network's subnet to a router so its VMs can reach external networks.",
                     slug: "how-to-attach-a-private-network-to-a-router"
+                }
+            ]
+        },
+        {
+            name: "Databases",
+            count: 1,
+            icon: Database,
+            color: "from-violet-500 to-purple-500",
+            bgColor: "bg-violet-50",
+            topics: [
+                {
+                    title: "How to create a Database",
+                    description: "Step-by-step guide to creating a database on Neviri Cloud.",
+                    slug: "create-a-database"
                 }
             ]
         }
