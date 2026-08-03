@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  BarChart3,
+  GitBranch,
   ShieldCheck,
   Database,
   Cpu,
@@ -15,9 +15,9 @@ import {
   TrendingDown,
   ActivitySquare,
   Terminal,
-  Bell,
-  PieChart,
-  CloudLightning
+  Server,
+  Rocket,
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
@@ -39,7 +39,7 @@ const staggerContainer = {
 
 export default function AIPageClient() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
-  const [heroTab, setHeroTab] = useState("cost");
+  const [heroTab, setHeroTab] = useState("deploy");
 
   const gridBg = {
     backgroundColor: "#ffffff",
@@ -49,20 +49,20 @@ export default function AIPageClient() {
 
   const faqs = [
     {
-      q: "How exactly does Neviri AI identify cloud waste?",
-      a: "Neviri AI continuously ingests your cloud billing data and resource telemetry (like vCPU, memory, and disk IOPS). It correlates what you are paying for with what your applications are actually using, instantly highlighting idle instances, over-provisioned databases, and unattached storage volumes."
+      q: "How does Neviri's Git-to-Cloud deployment work?",
+      a: "It's a completely zero-touch pipeline. You connect your GitHub or GitLab repository, and when you push code, Neviri automatically detects your framework (Next.js, Node, Python, etc.), builds the container, runs health checks, and performs a zero-downtime cutover to production."
     },
     {
-      q: "Will Neviri make changes to my cloud infrastructure automatically?",
-      a: "By default, Neviri operates in read-only mode to provide actionable right-sizing recommendations and alerts. You retain full control. You can, however, enable automated remediation for specific low-risk environments if desired."
+      q: "How exactly does the AI optimize my infrastructure costs?",
+      a: "Instead of forcing you to guess server sizes, Neviri's hypervisor AI continuously monitors your vCPU, memory consumption, and database throughput in real-time. It automatically right-sizes your resources and scales down idle instances during low-traffic periods, ensuring you only pay for what your app actually consumes."
     },
     {
-      q: "How fast will I be alerted to a cost spike?",
-      a: "Our anomaly detection engine processes billing events in near real-time. If a misconfigured deployment or rogue script causes an unexpected spike in compute or bandwidth usage, you are alerted via Slack or email within minutes, not at the end of the billing cycle."
+      q: "Does the AI interact with my proprietary application code?",
+      a: "No. The AI operates entirely at the infrastructure and hypervisor layer. It monitors system telemetry (like memory spikes or slow database queries) to optimize the environment, but it never accesses or reads your source code."
     },
     {
-      q: "Which cloud providers do you support?",
-      a: "Currently, Neviri's cost monitoring engine deeply integrates with AWS, providing granular insights into EC2, RDS, S3, and Kubernetes (EKS) workloads. GCP and Azure support are currently in beta."
+      q: "How are environment variables and runtime secrets secured?",
+      a: "Secrets are stored in an AES-256 encrypted parameter vault. At deployment, they are dynamically injected directly into your application's isolated runtime memory. They are never written to disk or exposed in your build logs."
     }
   ];
 
@@ -85,18 +85,18 @@ export default function AIPageClient() {
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 text-xs font-semibold tracking-wide mb-6 shadow-sm">
                 <BrainCircuit className="h-4 w-4 text-sky-600 animate-pulse" />
-                Intelligent Cloud Cost Monitoring
+                Intelligent Cloud Infrastructure
               </motion.div>
 
               <motion.h1 variants={fadeInUp} className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-6">
-                Stop guessing your cloud bill. <br />
+                Deploy instantly. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600">
-                  Let AI optimize your spend.
+                  Let AI scale the rest.
                 </span>
               </motion.h1>
 
               <motion.p variants={fadeInUp} className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-normal">
-                Gain absolute visibility into your cloud infrastructure. Neviri AI monitors usage patterns, attributes costs granularly, and provides automated right-sizing recommendations to eliminate cloud waste.
+                Push your code and Neviri handles the infrastructure. Our built-in AI actively monitors compute memory and traffic to auto-scale resources—eliminating cloud waste while delivering zero-downtime global deployments.
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto mb-10">
@@ -104,7 +104,7 @@ export default function AIPageClient() {
                   href={APP_SIGNUP_URL}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-md hover:shadow-lg focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
                 >
-                  Start Saving Today
+                  Start Deploying Free
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
@@ -133,8 +133,8 @@ export default function AIPageClient() {
                   <TrendingDown className="w-4 h-4 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900">Right-Sizing Alert</p>
-                  <p className="text-[10px] text-slate-500">Downgrade RDS instance. Save $320/mo.</p>
+                  <p className="text-xs font-bold text-slate-900">Auto-Scaled Down</p>
+                  <p className="text-[10px] text-slate-500">Traffic dropped. Saved 40% on compute.</p>
                 </div>
               </motion.div>
 
@@ -143,12 +143,12 @@ export default function AIPageClient() {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute -right-4 bottom-16 z-20 bg-white p-3 rounded-xl border border-slate-200 shadow-xl flex items-center gap-3"
               >
-                <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center">
-                  <Bell className="w-4 h-4 text-rose-600" />
+                <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center">
+                  <Rocket className="w-4 h-4 text-sky-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900">Spend Anomaly Detected</p>
-                  <p className="text-[10px] text-slate-500">EC2 data transfer spiked by 45% today.</p>
+                  <p className="text-xs font-bold text-slate-900">Zero-Downtime Deploy</p>
+                  <p className="text-[10px] text-slate-500">Production traffic routed in 42ms.</p>
                 </div>
               </motion.div>
 
@@ -161,12 +161,12 @@ export default function AIPageClient() {
                   </div>
                   <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
                     <button
-                      onClick={() => setHeroTab("cost")}
+                      onClick={() => setHeroTab("deploy")}
                       className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
-                        heroTab === "cost" ? "bg-sky-600 text-white shadow-sm" : "text-slate-400 hover:text-slate-200"
+                        heroTab === "deploy" ? "bg-sky-600 text-white shadow-sm" : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
-                      Cost Allocation
+                      Pipeline Status
                     </button>
                     <button
                       onClick={() => setHeroTab("telemetry")}
@@ -174,22 +174,22 @@ export default function AIPageClient() {
                         heroTab === "telemetry" ? "bg-sky-600 text-white shadow-sm" : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
-                      Utilization Metrics
+                      Live Telemetry
                     </button>
                   </div>
                 </div>
 
                 <div className="relative aspect-[4/3] w-full bg-slate-900 overflow-hidden">
                   <AnimatePresence mode="wait">
-                    {heroTab === "cost" ? (
+                    {heroTab === "deploy" ? (
                       <motion.img 
-                        key="cost-img"
+                        key="deploy-img"
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
                         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
-                        alt="Cloud Cost Allocation Dashboard"
+                        alt="Infrastructure Deployment Dashboard"
                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                       />
                     ) : (
@@ -200,7 +200,7 @@ export default function AIPageClient() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
                         src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
-                        alt="Resource Utilization Dashboard"
+                        alt="Infrastructure Telemetry Dashboard"
                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                       />
                     )}
@@ -227,13 +227,13 @@ export default function AIPageClient() {
         >
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-100 flex items-center justify-center gap-1.5 w-max mx-auto">
-              <CloudLightning className="h-3.5 w-3.5" /> Fast Integration
+              <Terminal className="h-3.5 w-3.5" /> Git to Production
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-4 mb-3">
-              Three simple steps to control your cloud spend.
+              Three simple steps to deploy globally.
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              Connect your billing accounts and let our AI dissect your infrastructure usage to uncover hidden savings automatically.
+              No DevOps engineers required. Connect your repository and let Neviri provision, build, and optimize your cloud environments automatically.
             </p>
           </div>
 
@@ -241,36 +241,36 @@ export default function AIPageClient() {
             <motion.div variants={fadeInUp} className="relative">
               <div className="text-6xl font-black text-slate-100 absolute -top-8 -left-4 -z-10">01</div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <Database className="h-5 w-5 text-sky-600" /> Connect
+                <GitBranch className="h-5 w-5 text-sky-600" /> Push Code
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Securely integrate your AWS or cloud provider accounts via read-only IAM roles. Neviri instantly begins ingesting your Cost and Usage Reports (CUR).
+                Connect your GitHub or GitLab in seconds. Neviri listens for new commits, automatically triggering our secure build pipelines.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="relative">
               <div className="text-6xl font-black text-slate-100 absolute -top-8 -left-4 -z-10">02</div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <BrainCircuit className="h-5 w-5 text-indigo-600" /> Analyze
+                <Rocket className="h-5 w-5 text-indigo-600" /> Auto-Build
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Our machine learning models map your billing data to actual resource utilization, identifying untagged assets, idle instances, and inefficient architectures.
+                Our engine detects your framework (Next.js, Node, Django, etc.), installs dependencies, provisions SSL, and launches your containerized app on our global edge network.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="relative">
               <div className="text-6xl font-black text-slate-100 absolute -top-8 -left-4 -z-10">03</div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <TrendingDown className="h-5 w-5 text-emerald-600" /> Optimize
+                <BrainCircuit className="h-5 w-5 text-emerald-600" /> AI Optimize
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Review actionable right-sizing recommendations and apply them directly. Set custom budgets and receive instant anomaly alerts before your bill spikes.
+                Once live, our hypervisor AI continuously monitors vCPU and memory. It automatically scales instances down during idle periods to slash your hosting bill.
               </p>
             </motion.div>
           </div>
         </motion.section>
 
-        {/* ── 3. AUTOMATED COST WORKFLOW ── */}
+        {/* ── 3. AUTOMATED DEPLOYMENT WORKFLOW ── */}
         <motion.section 
           initial="hidden"
           whileInView="visible"
@@ -283,13 +283,13 @@ export default function AIPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div className="lg:col-span-6">
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/50 px-3 py-1 rounded-full border border-emerald-800">
-                Continuous Monitoring Engine
+                Deployment Engine
               </span>
               <h2 className="text-2xl sm:text-4xl font-bold mt-4 mb-4">
-                Real-time visibility. Zero manual spreadsheets.
+                You write code. Neviri runs the servers.
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-                Neviri processes millions of billing events daily, mapping them to your engineering teams and environments. Know exactly where every dollar goes and eliminate the manual toil of cloud cost management.
+                A truly self-serve PaaS. From continuous integration to database provisioning, a single git push handles everything. We replace the need for complex Kubernetes setups or manual server configuration.
               </p>
 
               <ul className="space-y-4">
@@ -298,8 +298,8 @@ export default function AIPageClient() {
                     <span className="text-sky-400 text-xs font-bold">1</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Granular Cost Allocation</p>
-                    <p className="text-slate-400 text-xs mt-1">Automatically categorize spend by team, project, or service—even without perfect tags.</p>
+                    <p className="font-semibold text-white">Smart Framework Detection</p>
+                    <p className="text-slate-400 text-xs mt-1">Neviri understands your project structure natively, compiling Next.js, Node, or Python apps without custom Dockerfiles.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -307,8 +307,8 @@ export default function AIPageClient() {
                     <span className="text-sky-400 text-xs font-bold">2</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Automated Anomaly Detection</p>
-                    <p className="text-slate-400 text-xs mt-1">AI flags unusual spending patterns instantly, preventing month-end bill shock.</p>
+                    <p className="font-semibold text-white">Zero-Downtime Cutovers</p>
+                    <p className="text-slate-400 text-xs mt-1">New deployments are booted and health-checked in the background before atomic traffic routing swaps them in.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -316,8 +316,8 @@ export default function AIPageClient() {
                     <span className="text-sky-400 text-xs font-bold">3</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Actionable Right-Sizing</p>
-                    <p className="text-slate-400 text-xs mt-1">Get specific instance type changes based on historical vCPU/Memory utilization data.</p>
+                    <p className="font-semibold text-white">Instant Rollbacks</p>
+                    <p className="text-slate-400 text-xs mt-1">Bad commit? Revert to the previous healthy container state instantly with a single click.</p>
                   </div>
                 </li>
               </ul>
@@ -330,13 +330,13 @@ export default function AIPageClient() {
                     <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                     <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                   </div>
-                  <p className="text-slate-500">$ neviri connect aws --role-arn arn:aws:iam::1234:role/NeviriReadOnly</p>
-                  <p className="text-sky-400">► [Neviri AI] IAM Role validated. Ingesting CUR data...</p>
-                  <p className="text-slate-300">► [Sync] Processing 1.2M billing records (Last 30 days)</p>
-                  <p className="text-slate-300">► [Analyze] Mapping unallocated resources to tags...</p>
-                  <p className="text-amber-400">► [Alert] Anomaly Detected: S3 Data Transfer spiked +45% in us-east-1.</p>
-                  <p className="text-emerald-400">► [Optimization] Found 14 idle EC2 instances. Potential savings: $1,420/mo.</p>
-                  <p className="text-sky-400 font-bold mt-2">✔ Dashboard updated. Real-time monitoring active.</p>
+                  <p className="text-slate-500">$ git push origin main</p>
+                  <p className="text-sky-400">► [Neviri Engine] Webhook received. Initializing pipeline...</p>
+                  <p className="text-slate-300">► [Build] Detected framework: Next.js</p>
+                  <p className="text-slate-300">► [Vault] Injecting encrypted environment variables...</p>
+                  <p className="text-slate-300">► [Network] Provisioning Let's Encrypt TLS 1.3 Certificate...</p>
+                  <p className="text-emerald-400">► [AI Check] Pre-flight memory allocation mapped successfully.</p>
+                  <p className="text-sky-400 font-bold mt-2">✔ Deployment live. 0ms downtime.</p>
                 </div>
             </div>
           </div>
@@ -351,59 +351,59 @@ export default function AIPageClient() {
         >
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-4 mb-3">
-              The complete toolkit for cloud financial management.
+              Everything you need to host modern applications.
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              Everything engineering and finance teams need to collaborate, forecast, and optimize cloud infrastructure effectively.
+              A complete cloud ecosystem designed for developers, powered by intelligent auto-scaling.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <PieChart className="h-8 w-8 text-sky-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Cost Allocation & Tagging</h3>
+              <Globe className="h-8 w-8 text-sky-600 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Global Edge Network</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Bring order to chaotic bills. Automatically group costs by environment, team, or product feature—even mapping untagged resources intelligently.
+                Your static assets and edge functions are automatically distributed globally, ensuring lightning-fast load times for users anywhere in the world.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <TrendingDown className="h-8 w-8 text-emerald-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">AI Right-Sizing</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">AI Cost Optimization</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Stop over-provisioning. Neviri compares provisioned capacity against actual CPU/Memory metrics to recommend exact instance downgrades.
+                Neviri tracks your resource consumption against active traffic, automatically scaling down idle compute environments so you never overpay for hosting.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <Bell className="h-8 w-8 text-rose-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Instant Anomaly Alerts</h3>
+              <Database className="h-8 w-8 text-indigo-600 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Managed Databases</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Catch expensive mistakes the moment they happen. Get Slack, Teams, or email alerts when specific services deviate from historical spend patterns.
+                Provision PostgreSQL, MySQL, or Redis with a single click. We handle automated backups, replication, and query performance monitoring.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <BarChart3 className="h-8 w-8 text-indigo-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Budgeting & Forecasting</h3>
+              <GitBranch className="h-8 w-8 text-amber-600 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Preview Environments</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Create granular budgets for different teams and let our ML models forecast your end-of-month spend based on current deployment run-rates.
+                Every Pull Request automatically generates a unique, isolated preview URL. Test changes safely with your team before merging to production.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <ActivitySquare className="h-8 w-8 text-amber-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Waste Eradication</h3>
+              <Cpu className="h-8 w-8 text-rose-600 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 mb-2">vCPU & Memory Telemetry</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Automatically identify orphaned EBS volumes, unattached Elastic IPs, and obsolete snapshots that are quietly draining your budget.
+                Get crystal-clear dashboards on your application's memory footprint and CPU utilization to easily diagnose bottlenecks or memory leaks.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <ShieldCheck className="h-8 w-8 text-teal-600 mb-4" />
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Read-Only Security</h3>
+              <Server className="h-8 w-8 text-teal-600 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Background Workers</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Neviri connects via strict least-privilege IAM roles. We analyze billing metadata and telemetry without ever accessing your application code or PII data.
+                Easily spin up separate worker processes for heavy lifting tasks, cron jobs, and queue processing—fully isolated from your web traffic.
               </p>
             </motion.div>
           </div>
@@ -423,17 +423,17 @@ export default function AIPageClient() {
                 <Lock className="w-6 h-6" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
-                Bank-grade security. <br />Your data stays yours.
+                Secure by default. <br />Isolated at the core.
               </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                We understand the sensitivity of cloud infrastructure data. Neviri is designed to provide maximum insights using minimum privileges, ensuring absolute compliance and security.
+                Your application code, data, and environment variables are sensitive. Neviri is built from the ground up with strict container isolation and automated security protocols.
               </p>
               
               <Link
                 href={APP_SIGNUP_URL}
                 className="inline-flex items-center justify-center gap-2 text-sky-600 font-semibold hover:text-sky-700 transition-colors"
               >
-                Learn more about our architecture <ArrowRight className="w-4 h-4" />
+                Learn more about our infrastructure <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -441,29 +441,29 @@ export default function AIPageClient() {
               <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                 <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900">Read-Only IAM Roles</h4>
-                  <p className="text-sm text-slate-600 mt-1">We connect to your AWS environment using strict cross-account roles with read-only access to Cost Explorer and CloudWatch.</p>
+                  <h4 className="font-bold text-slate-900">Encrypted Parameter Vault</h4>
+                  <p className="text-sm text-slate-600 mt-1">Secrets are stored in an AES-256 vault and injected dynamically into your app's memory only upon boot.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                 <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900">SOC2 & PCI DSS Ready</h4>
-                  <p className="text-sm text-slate-600 mt-1">Our platform runs on hardened infrastructure, adhering to the strictest industry compliance and audit standards.</p>
+                  <h4 className="font-bold text-slate-900">Isolated Runtimes</h4>
+                  <p className="text-sm text-slate-600 mt-1">Every deployment runs in its own tightly sandboxed container environment, ensuring complete process isolation.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                 <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900">No App Data Access</h4>
-                  <p className="text-sm text-slate-600 mt-1">Neviri analyzes metadata, billing metrics, and hypervisor telemetry. We never see your customer data, databases, or code.</p>
+                  <h4 className="font-bold text-slate-900">Automated SSL/TLS 1.3</h4>
+                  <p className="text-sm text-slate-600 mt-1">Every domain attached to Neviri receives a modern, auto-renewing Let's Encrypt certificate automatically.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                 <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900">Data Encryption</h4>
-                  <p className="text-sm text-slate-600 mt-1">All billing reports and telemetry data are encrypted at rest (AES-256) and in transit (TLS 1.3).</p>
+                  <h4 className="font-bold text-slate-900">No Log Exposure</h4>
+                  <p className="text-sm text-slate-600 mt-1">Environment variables are strictly guarded and are inherently scrubbed from exposing in deployment build logs.</p>
                 </div>
               </div>
             </div>
@@ -534,23 +534,23 @@ export default function AIPageClient() {
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Stop overpaying for idle cloud infrastructure.
+              Deploy your app seamlessly in minutes.
             </h2>
             <p className="text-slate-300 mb-10">
-              Connect your cloud account in minutes and let Neviri's AI uncover hidden savings immediately. No engineering resources required to get started.
+              No complex Kubernetes charts. No DevOps headaches. Just push your code to Neviri and let our platform build, scale, and optimize your application automatically.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={APP_SIGNUP_URL}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white px-8 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-md focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-slate-900"
               >
-                Start Saving Free <ArrowRight className="w-4 h-4" />
+                Deploy Now Free <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent hover:bg-slate-800 text-white border border-slate-600 px-8 py-3.5 rounded-xl text-sm font-semibold transition-all focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-900"
               >
-                Book a Demo
+                Talk to our Team
               </Link>
             </div>
           </div>
