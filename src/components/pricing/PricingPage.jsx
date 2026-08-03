@@ -334,7 +334,7 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { label: "Network Inbound",        value: "Free",   sub: "Always free, unlimited",    color: "green" },
-                { label: "First 100 GB Outbound",  value: "Free",   sub: "Per month, per VM",         color: "green" },
+                { label: "First 100 GB Outbound",  value: "Free",   sub: "Per month",         color: "green" },
                 { label: "Outbound Overage",        value: "$0.05",  sub: "Per GB beyond 100 GB/mo",   color: "sky"   },
               ].map((item) => (
                 <div key={item.label} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-sky-200 hover:shadow-md transition-all duration-200">
