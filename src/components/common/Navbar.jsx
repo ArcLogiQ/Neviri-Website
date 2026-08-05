@@ -87,7 +87,7 @@ const Navbar = () => {
   };
 
   const isProductsActive =
-    isActive("/solutions") ||
+    isActive("/products") ||
     isActive("/compute/shared-cpu") ||
     isActive("/compute/virtual-machine") ||
     isActive("/storage") ||
@@ -447,7 +447,7 @@ const Navbar = () => {
                   ))}
                 </div>
                 <Link
-                  href="/solutions"
+                  href="/products"
                   onClick={() => setIsMegaOpen(false)}
                   className="flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-700 transition-colors"
                 >

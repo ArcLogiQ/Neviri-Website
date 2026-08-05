@@ -6,7 +6,7 @@ Marketing website for Neviri Cloud, extracted from the main `frontend` app. Pure
 
 - `/` — landing (Hero, Features, Why Choose Neviri, Testimonials)
 - `/about`
-- `/solutions`
+- `/products` (`/solutions` 302-redirects here)
 - `/pricing`
 - `/blogs` and `/blogs/[slug]`
 - `/support`
