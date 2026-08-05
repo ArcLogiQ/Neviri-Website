@@ -60,6 +60,31 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="/images/favicon-32x32.png" />
       </head>
       <body className={plusJakartaSans.className}>
+        
+        {/* Reddit Pixel */}
+        <Script id="reddit-pixel" strategy="afterInteractive">
+          {`
+            !function(w,d){
+              if(!w.rdt){
+                var p=w.rdt=function(){
+                  p.sendEvent
+                    ? p.sendEvent.apply(p,arguments)
+                    : p.callQueue.push(arguments)
+                };
+                p.callQueue=[];
+                var t=d.createElement("script");
+                t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jb3jrorkuyeu";
+                t.async=!0;
+                var s=d.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(t,s)
+              }
+            }(window,document);
+
+            rdt('init','a2_jb3jrorkuyeu');
+            rdt('track','PageVisit');
+          `}
+        </Script>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T7C75JD80Z"
