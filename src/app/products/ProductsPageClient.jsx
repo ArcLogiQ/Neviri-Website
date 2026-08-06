@@ -30,6 +30,7 @@ import {
   LifeBuoy,
   Save,
   Tag,
+  BrainCircuit,
 } from "lucide-react";
 
 // Animation variants (same convention as the /ai page)
@@ -172,6 +173,21 @@ const productFamilies = [
         href: "/database/postgresql",
         icon: Database,
         desc: "Managed Postgres with automated version upgrades, daily backups, and query insights.",
+      },
+    ],
+  },
+  {
+    key: "ai",
+    name: "AI",
+    icon: BrainCircuit,
+    blurb:
+      "Ship straight from Git and let Neviri's AI right-size your infrastructure, so you only pay for what your app actually uses.",
+    products: [
+      {
+        name: "Neviri AI",
+        href: "/ai",
+        icon: BrainCircuit,
+        desc: "Zero-touch Git-to-Cloud deployments with an AI that monitors usage and optimizes costs in real time.",
       },
     ],
   },

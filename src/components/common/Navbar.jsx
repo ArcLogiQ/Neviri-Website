@@ -28,6 +28,7 @@ import {
   GraduationCap,
   Globe,
   CheckCircle,
+  BrainCircuit,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -92,7 +93,8 @@ const Navbar = () => {
     isActive("/compute/virtual-machine") ||
     isActive("/storage") ||
     isActive("/networking") ||
-    isActive("/database");
+    isActive("/database") ||
+    isActive("/ai");
 
   // ── Mega menu data ──────────────────────────────────────────────
   const col1 = [
@@ -198,6 +200,18 @@ const Navbar = () => {
           desc: "Advanced SQL",
           icon: <Database className="h-4 w-4 text-sky-500" />,
           href: "/database/postgresql",
+        },
+      ],
+    },
+    {
+      section: "Artificial Intelligence",
+      icon: <BrainCircuit className="h-4 w-4 text-sky-500" />,
+      items: [
+        {
+          label: "Neviri AI",
+          desc: "AI-powered cloud",
+          icon: <BrainCircuit className="h-4 w-4 text-sky-500" />,
+          href: "/ai",
         },
       ],
     },
