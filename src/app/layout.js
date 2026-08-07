@@ -73,14 +73,14 @@ export default function RootLayout({ children }) {
                 };
                 p.callQueue=[];
                 var t=d.createElement("script");
-                t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jb3jrorkuyeu";
+                t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jh2jtk09o0xi";
                 t.async=!0;
                 var s=d.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(t,s)
               }
             }(window,document);
 
-            rdt('init','a2_jb3jrorkuyeu');
+            rdt('init','a2_jh2jtk09o0xi');
             rdt('track','PageVisit');
           `}
         </Script>
