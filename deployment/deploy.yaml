@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neviri-website-neviri-prod
+  namespace: neviri
+spec:
+  replicas: 2
+  minReadySeconds: 60
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: neviri-website
+      release: neviri-website-neviri-prod
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: neviri-website
+        release: neviri-website-neviri-prod
+    spec:
+      containers:
+        - name: neviri-website
+          image: registry.neviri.com/prod-neviri/neviri-website:4316aa44-20-73
+          ports:
+            - name: app
+              containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_TURNSTILE_SITE_KEY
+              value: 0x4AAAAAADzW2WXrzEE_SqCl
+          resources:
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
