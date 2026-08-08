@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: neviri-website
+  namespace: neviri
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "500m"
+spec:
+  ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - neviri.com
+        - www.neviri.com
+      secretName: neviri-website-tls
+
+  rules:
+    - host: neviri.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: neviri-website-neviri-prod-service
+                port:
+                  number: 80
+
+    - host: www.neviri.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: neviri-website-neviri-prod-service
+                port:
+                  number: 80
