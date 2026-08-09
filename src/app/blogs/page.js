@@ -280,19 +280,7 @@ export default function BlogPage() {
                   </h2>
                   <div className="bg-white/80 backdrop-blur-xl rounded-[2rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] transition-all duration-500 group">
                     <div className="md:flex h-full">
-                      <div className="md:w-1/2 overflow-hidden relative">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={
-                            featuredBlog.featuredImage ||
-                            "/api/placeholder/800/400"
-                          }
-                          alt={featuredBlog.title}
-                          className="h-64 md:h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      </div>
-                      <div className="md:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                      <div className="w-full p-8 lg:p-12 flex flex-col justify-center">
                         <div>
                           <div className="flex items-center space-x-3 mb-6">
                             <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
@@ -452,58 +440,49 @@ export default function BlogPage() {
                       key={blog.id}
                       className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 group flex flex-col"
                     >
-                      {!blog.isStatic && (
-                        <div className="relative overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={blog.featuredImage || "/api/placeholder/400/200"}
-                            alt={blog.title}
-                            className="h-52 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <button
-                            onClick={() => toggleBookmark(blog.id)}
-                            className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-[#0F172A] p-2.5 rounded-xl shadow-sm transition-colors cursor-pointer"
-                          >
-                            <svg
-                              className={`h-4 w-4 ${blog.isBookmarked
-                                ? "fill-current text-[#3B82F6]"
-                                : ""
-                                }`}
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      )}
                       <div className="p-6 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-4">
                           <span className="inline-block bg-[#EFF6FF] text-[#3B82F6] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#BFDBFE]">
                             {blog.category}
                           </span>
-                          <div className="flex items-center text-xs font-semibold text-[#94A3B8]">
-                            <svg
-                              className="h-3 w-3 mr-1"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                              />
-                            </svg>
-                            {formatDate(blog.createdAt)}
+                          <div className="flex items-center gap-3">
+                            <div className="flex items-center text-xs font-semibold text-[#94A3B8]">
+                              <svg
+                                className="h-3 w-3 mr-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                />
+                              </svg>
+                              {formatDate(blog.createdAt)}
+                            </div>
+                            {!blog.isStatic && (
+                              <button
+                                onClick={() => toggleBookmark(blog.id)}
+                                className="text-[#94A3B8] hover:text-[#3B82F6] transition-colors cursor-pointer"
+                                aria-label="Bookmark"
+                              >
+                                <svg
+                                  className={`h-4 w-4 ${blog.isBookmarked ? "fill-current text-[#3B82F6]" : ""}`}
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                                  />
+                                </svg>
+                              </button>
+                            )}
                           </div>
                         </div>
                         <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-tight group-hover:text-[#3B82F6] transition-colors">
@@ -622,21 +601,13 @@ export default function BlogPage() {
                     key={blog.id}
                     className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 flex flex-col group"
                   >
-                    <div className="relative overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={blog.featuredImage || "/api/placeholder/400/200"}
-                        alt={blog.title}
-                        className="h-52 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-[#0F172A] text-white px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg flex items-center gap-1.5 border border-slate-700">
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="mb-4">
+                        <span className="bg-[#0F172A] text-white px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg inline-flex items-center gap-1.5 border border-slate-700">
                           <span className="w-1.5 h-1.5 rounded-full bg-sky-600 animate-pulse"></span>
                           #{index + 1} Trending
                         </span>
                       </div>
-                    </div>
-                    <div className="p-6 flex flex-col flex-grow">
                       <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-tight group-hover:text-[#3B82F6] transition-colors">
                         {blog.title}
                       </h3>
@@ -753,36 +724,31 @@ export default function BlogPage() {
                       key={blog.id}
                       className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 group flex flex-col"
                     >
-                      <div className="relative overflow-hidden">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={blog.featuredImage || "/api/placeholder/400/200"}
-                          alt={blog.title}
-                          className="h-52 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <button
-                          onClick={() => toggleBookmark(blog.id)}
-                          className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-[#0F172A] p-2.5 rounded-xl shadow-sm transition-colors cursor-pointer"
-                        >
-                          <svg
-                            className="h-4 w-4 fill-current text-[#3B82F6]"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
                       <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-tight group-hover:text-[#3B82F6] transition-colors">
-                          {blog.title}
-                        </h3>
+                        <div className="flex items-start justify-between gap-3 mb-3">
+                          <h3 className="text-xl font-bold text-[#0F172A] leading-tight group-hover:text-[#3B82F6] transition-colors">
+                            {blog.title}
+                          </h3>
+                          <button
+                            onClick={() => toggleBookmark(blog.id)}
+                            className="shrink-0 text-[#3B82F6] hover:text-sky-700 transition-colors cursor-pointer"
+                            aria-label="Remove bookmark"
+                          >
+                            <svg
+                              className="h-4 w-4 fill-current"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                         <p className="text-[#64748B] text-sm mb-6 line-clamp-2 font-medium flex-grow">
                           {blog.excerpt}
                         </p>
