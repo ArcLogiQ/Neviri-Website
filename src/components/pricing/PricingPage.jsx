@@ -22,22 +22,22 @@ import BillAnalyzer from "./BillAnalyzer";
 
 // Basic Burstable Pricing (from PDF Table 5)
 const BASIC_VM_PRICING = [
-  { flavor: "t2.nano",   vcpu: 1, ram: 0.5, priceMo: 4.26,   priceHr: 4.26 / 730 },
-  { flavor: "t2.micro",  vcpu: 1, ram: 1,   priceMo: 8.53,   priceHr: 8.53 / 730 },
-  { flavor: "t2.small",  vcpu: 1, ram: 2,   priceMo: 17.05,  priceHr: 17.05 / 730 },
-  { flavor: "t2.medium", vcpu: 2, ram: 4,   priceMo: 34.11,  priceHr: 34.11 / 730 },
-  { flavor: "t2.large",  vcpu: 4, ram: 8,   priceMo: 68.21,  priceHr: 68.21 / 730 },
-  { flavor: "t2.xlarge", vcpu: 8, ram: 16,  priceMo: 136.42, priceHr: 136.42 / 730 },
+  { flavor: "nt2.nano",   vcpu: 1, ram: 0.5, priceMo: 4.26,   priceHr: 4.26 / 730 },
+  { flavor: "nt2.micro",  vcpu: 1, ram: 1,   priceMo: 8.53,   priceHr: 8.53 / 730 },
+  { flavor: "nt2.small",  vcpu: 1, ram: 2,   priceMo: 17.05,  priceHr: 17.05 / 730 },
+  { flavor: "nt2.medium", vcpu: 2, ram: 4,   priceMo: 34.11,  priceHr: 34.11 / 730 },
+  { flavor: "nt2.large",  vcpu: 4, ram: 8,   priceMo: 68.21,  priceHr: 68.21 / 730 },
+  { flavor: "nt2.xlarge", vcpu: 8, ram: 16,  priceMo: 136.42, priceHr: 136.42 / 730 },
 ];
 
 // Premium Compute Pricing (from PDF Table 4)
 const PREMIUM_VM_PRICING = [
-  { flavor: "c5.large",    vcpu: 2,  ram: 4,  priceMo: 57.23,   priceHr: 57.23 / 730 },
-  { flavor: "c5.xlarge",   vcpu: 4,  ram: 8,  priceMo: 114.46,  priceHr: 114.46 / 730 },
-  { flavor: "c5.2xlarge",  vcpu: 8,  ram: 16, priceMo: 228.93,  priceHr: 228.93 / 730 },
-  { flavor: "c5.4xlarge",  vcpu: 16, ram: 32, priceMo: 457.86,  priceHr: 457.86 / 730 },
-  { flavor: "c5.9xlarge",  vcpu: 36, ram: 72, priceMo: 1030.18, priceHr: 1030.18 / 730 },
-  { flavor: "c5.12xlarge", vcpu: 48, ram: 96, priceMo: 1373.57, priceHr: 1373.57 / 730 },
+  { flavor: "nc5.large",    vcpu: 2,  ram: 4,  priceMo: 57.23,   priceHr: 57.23 / 730 },
+  { flavor: "nc5.xlarge",   vcpu: 4,  ram: 8,  priceMo: 114.46,  priceHr: 114.46 / 730 },
+  { flavor: "nc5.2xlarge",  vcpu: 8,  ram: 16, priceMo: 228.93,  priceHr: 228.93 / 730 },
+  { flavor: "nc5.4xlarge",  vcpu: 16, ram: 32, priceMo: 457.86,  priceHr: 457.86 / 730 },
+  { flavor: "nc5.9xlarge",  vcpu: 36, ram: 72, priceMo: 1030.18, priceHr: 1030.18 / 730 },
+  { flavor: "nc5.12xlarge", vcpu: 48, ram: 96, priceMo: 1373.57, priceHr: 1373.57 / 730 },
 ];
 
 const BANDWIDTH_COMPARISON = [
