@@ -17,11 +17,12 @@ import {
   Terminal,
   Server,
   Rocket,
-  Globe
+  Globe,
+  ExternalLink
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/common/Navbar";
-import { APP_SIGNUP_URL } from "@/config/api";
+import { APP_SIGNUP_URL, AI_APP_URL } from "@/config/api";
 
 // Animation Variants
 const fadeInUp = {
@@ -106,6 +107,15 @@ export default function AIPageClient() {
                 >
                   Start Deploying Free
                   <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={AI_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-md hover:shadow-lg focus:ring-2 focus:ring-sky-600 focus:ring-offset-2"
+                >
+                  Open the Neviri AI Dashboard
+                  <ExternalLink className="h-4 w-4" />
                 </Link>
                 <Link
                   href="#how-it-works"
