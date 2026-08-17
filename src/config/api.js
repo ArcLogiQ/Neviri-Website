@@ -19,6 +19,11 @@ const APP_BASE_URL =
 export const APP_LOGIN_URL = `${APP_BASE_URL}/login`;
 export const APP_SIGNUP_URL = `${APP_BASE_URL}/signup`;
 
+// Neviri AI dashboard (opened in a new tab from the /ai marketing page).
+// Falls back to the production AI app URL when NEXT_PUBLIC_AI_APP_URL is unset.
+export const AI_APP_URL =
+  process.env.NEXT_PUBLIC_AI_APP_URL || "https://ai.neviri.com";
+
 export const API_ENDPOINTS = {
   // User ApiNEXT_PUBLIC_API_BASE_URL
   REGISTER: `${AUTH_BASE_URL}/api/v1/user/register`,
