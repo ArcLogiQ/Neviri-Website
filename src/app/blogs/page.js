@@ -23,6 +23,36 @@ const categories = [
 
 const STATIC_BLOGS = [
   {
+    id: "static-moving-off-aws-s3",
+    isStatic: true,
+    slug: "moving-off-aws-s3",
+    title: "Moving off AWS S3 without rewriting your app",
+    excerpt:
+      "S3 bills you twice: once to store, again on egress every time files are read. Move to S3-compatible object storage with a one-line endpoint change and cut transfer costs.",
+    category: "Object Storage",
+    createdAt: "2026-08-18T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 6,
+    views: 0,
+    tags: ["object-storage", "s3", "cloud-cost", "egress"],
+    isBookmarked: false,
+  },
+  {
+    id: "static-mongodb-atlas-alternatives",
+    isStatic: true,
+    slug: "mongodb-atlas-alternatives",
+    title: "MongoDB Atlas alternatives for teams that outgrew the free tier",
+    excerpt:
+      "Managed MongoDB on Neviri with the same M10 to M300 sizing, three-node replica sets, and point-in-time recovery, priced per replica.",
+    category: "Managed Databases",
+    createdAt: "2026-08-18T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 7,
+    views: 0,
+    tags: ["database", "mongodb", "atlas-alternative", "managed-database"],
+    isBookmarked: false,
+  },
+  {
     id: "static-aws-rds-alternatives-2026",
     isStatic: true,
     slug: "aws-rds-alternatives-for-startups-in-2026",
