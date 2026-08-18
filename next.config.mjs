@@ -9,6 +9,11 @@ const nextConfig = {
         destination: "/products",
         statusCode: 302,
       },
+      {
+        source: "/blog",
+        destination: "/blogs",
+        statusCode: 302,
+      },
     ];
   },
 };
