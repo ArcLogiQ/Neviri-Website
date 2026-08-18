@@ -29,6 +29,9 @@ import {
   Globe,
   CheckCircle,
   BrainCircuit,
+  DatabaseZap,
+  Layers,
+  MessageSquareMore,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -200,6 +203,24 @@ const Navbar = () => {
           desc: "Advanced SQL",
           icon: <Database className="h-4 w-4 text-sky-500" />,
           href: "/database/postgresql",
+        },
+        {
+          label: "MariaDB",
+          desc: "Open-source SQL database",
+          icon: <DatabaseZap className="h-4 w-4 text-sky-500" />,
+          href: "/database/mariadb",
+        },
+        {
+          label: "Redis",
+          desc: "In-memory data store",
+          icon: <Layers className="h-4 w-4 text-sky-500" />,
+          href: "/database/redis",
+        },
+        {
+          label: "RabbitMQ",
+          desc: "Message broker",
+          icon: <MessageSquareMore className="h-4 w-4 text-sky-500" />,
+          href: "/database/rabbitmq",
         },
       ],
     },
@@ -402,7 +423,13 @@ const Navbar = () => {
                           </span>
                         </div>
                         {/* Items 2×2 grid */}
-                        <div className="grid grid-cols-2 gap-1">
+                        <div
+                          className={`grid gap-1 ${
+                            group.section === "Managed Databases"
+                              ? "grid-cols-3"
+                              : "grid-cols-2"
+                          }`}
+                        >
                           {group.items.map((item) => (
                             <Link
                               key={item.label}

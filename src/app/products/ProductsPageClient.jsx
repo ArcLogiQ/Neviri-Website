@@ -19,6 +19,9 @@ import {
   HardDrive,
   Box,
   Database,
+  DatabaseZap,
+  Layers,
+  MessageSquareMore,
   Leaf,
   Fish,
   LayoutGrid,
@@ -174,6 +177,24 @@ const productFamilies = [
         icon: Database,
         desc: "Managed Postgres with automated version upgrades, daily backups, and query insights.",
       },
+      {
+        name: "MariaDB",
+        href: "/database/mariadb",
+        icon: DatabaseZap,
+        desc: "MySQL-compatible open-source clusters with Galera multi-primary replication and PITR backups.",
+      },
+      {
+        name: "Redis",
+        href: "/database/redis",
+        icon: Layers,
+        desc: "In-memory data store with microsecond reads, RDB + AOF persistence, and Sentinel failover.",
+      },
+      {
+        name: "RabbitMQ",
+        href: "/database/rabbitmq",
+        icon: MessageSquareMore,
+        desc: "Managed message broker with quorum queues, dead-letter routing, and multi-protocol support.",
+      },
     ],
   },
   {
@@ -231,7 +252,7 @@ const platformStandards = [
 const faqs = [
   {
     q: "What's the difference between a Virtual Machine and a Managed Database?",
-    a: "Virtual Machines give you raw compute with full root access — you manage the OS and everything on it. Managed Databases (MongoDB, MySQL, PostgreSQL) are the opposite: we handle installation, security patches, clustering, and backups, and you just connect to an endpoint.",
+    a: "Virtual Machines give you raw compute with full root access — you manage the OS and everything on it. Managed Databases (MongoDB, MySQL, PostgreSQL, MariaDB, Redis, RabbitMQ) are the opposite: we handle installation, security patches, clustering, and backups, and you just connect to an endpoint.",
   },
   {
     q: "How quickly do resources provision?",
@@ -239,7 +260,7 @@ const faqs = [
   },
   {
     q: "Can I migrate existing workloads to Neviri?",
-    a: "Yes. We provide migration tooling and dedicated technical support for moving existing MongoDB, MySQL, and PostgreSQL workloads, with zero to minimal downtime during the transfer. VM workloads can be moved with custom images.",
+    a: "Yes. We provide migration tooling and dedicated technical support for moving existing database workloads — MongoDB, MySQL, PostgreSQL, MariaDB, Redis, and RabbitMQ — with zero to minimal downtime during the transfer. VM workloads can be moved with custom images.",
   },
   {
     q: "How does billing work?",
@@ -362,7 +383,7 @@ export default function ProductsPageClient() {
                 Explore the platform
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Four product families, one control plane. Every product below
+                Five product families, one control plane. Every product below
                 deploys from the same dashboard and lives on the same private
                 network.
               </p>
