@@ -32,11 +32,12 @@ import {
   DatabaseZap,
   Layers,
   MessageSquareMore,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { APP_LOGIN_URL, APP_SIGNUP_URL } from "@/config/api";
+import { APP_LOGIN_URL, APP_SIGNUP_URL, AI_APP_URL } from "@/config/api";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -343,6 +344,17 @@ const Navbar = () => {
                     {label}
                   </Link>
                 ))}
+
+                <a
+                  href={AI_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold text-sky-600 hover:bg-sky-50 transition-all duration-200"
+                >
+                  <BrainCircuit className="h-4 w-4" />
+                  Neviri AI
+                  <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+                </a>
               </div>
 
               {/* Auth buttons */}
@@ -614,6 +626,18 @@ const Navbar = () => {
                 {label}
               </Link>
             ))}
+
+            <a
+              href={AI_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-2 px-4 py-3 text-base rounded-lg font-semibold text-sky-600 hover:bg-sky-50 transition-all duration-200"
+            >
+              <BrainCircuit className="h-5 w-5" />
+              Neviri AI
+              <ExternalLink className="h-4 w-4 opacity-70" />
+            </a>
           </div>
 
           {/* Bottom Auth Buttons */}
