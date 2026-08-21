@@ -16,6 +16,9 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+# Keep .env.production in the image: next build inlines its PUBLIC
+# NEXT_PUBLIC_TURNSTILE_SITE_KEY at build time (mirrors .gitignore).
+!.env.production
 
 .vscode
 .idea
