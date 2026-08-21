@@ -39,6 +39,10 @@ jobs:
           file: ./Dockerfile
           push: true
           provenance: false
+
+          build-args: |
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+
           tags: |
             ${{ env.IMAGE }}:gha-${{ github.run_number }}-${{ github.sha }}
           cache-from: type=gha
