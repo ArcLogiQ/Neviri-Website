@@ -17,6 +17,9 @@ export const metadata = {
       "Compare AWS EC2, DigitalOcean, and alternative cloud providers such as Neviri, Hetzner, Vultr, and Akamai Cloud on flexibility, simplicity, cost, performance, and operational control.",
     url: "https://neviri.com/blogs/aws-ec2-vs-digitalocean-vs-alternative-cloud-providers",
     type: "article",
+    images: [
+      "https://neviri.com/images/blogs/aws-ec2-vs-digitalocean-vs-alternative-cloud-providers.png",
+    ],
   },
 };
 
@@ -128,6 +131,13 @@ export default function Page() {
               Cloud Is Best in 2026?
             </h1>
           </header>
+
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/blogs/aws-ec2-vs-digitalocean-vs-alternative-cloud-providers.png"
+            alt="AWS EC2 vs. DigitalOcean vs. Alternative Cloud Providers: Which Cloud Is Best in 2026?"
+            className="w-full rounded-lg border border-[#DDE3EA] mb-10"
+          />
 
           <section className="mb-10">
             <P>
