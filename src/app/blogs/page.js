@@ -23,6 +23,22 @@ const categories = [
 
 const STATIC_BLOGS = [
   {
+    id: "static-aws-ec2-vs-digitalocean-vs-alternatives",
+    isStatic: true,
+    slug: "aws-ec2-vs-digitalocean-vs-alternative-cloud-providers",
+    title:
+      "AWS EC2 vs. DigitalOcean vs. Alternative Cloud Providers: Which Cloud Is Best in 2026?",
+    excerpt:
+      "Choosing a cloud provider in 2026 is no longer simply a question of AWS vs. DigitalOcean. Compare AWS EC2, DigitalOcean, and alternative providers such as Neviri on flexibility, simplicity, cost, and operational control.",
+    category: "Cloud",
+    createdAt: "2026-08-24T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 15,
+    views: 0,
+    tags: ["cloud", "aws", "digitalocean", "cloud-comparison"],
+    isBookmarked: false,
+  },
+  {
     id: "static-moving-off-aws-s3",
     isStatic: true,
     slug: "moving-off-aws-s3",
