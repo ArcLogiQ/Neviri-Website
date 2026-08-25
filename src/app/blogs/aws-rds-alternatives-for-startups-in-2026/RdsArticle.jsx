@@ -131,8 +131,6 @@ const css = `
 .rdsx .final-cta h2{ color:#fff; font-size:2rem; margin-bottom:14px; }
 .rdsx .final-cta p{ color:#AEB6C4; margin-bottom:30px; }
 
-.rdsx .sticky-cta{ display:none; }
-
 /* animation */
 @keyframes gradientShift{ 0%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } 100%{ background-position:0% 50%; } }
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
@@ -189,9 +187,6 @@ const css = `
   .rdsx .cc-row{ display:flex; justify-content:space-between; font-size:.82rem; padding:5px 0; border-top:1px solid var(--line); color:var(--ink-soft); }
   .rdsx .cc-row:first-of-type{ border-top:none; }
   .rdsx .cc-row span:first-child{ color:var(--ink-faint); }
-  .rdsx .sticky-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--line); padding:12px 16px; align-items:center; justify-content:space-between; gap:12px; z-index:50; box-shadow:0 -8px 24px -16px rgba(0,0,0,.15); }
-  .rdsx .sticky-cta .amt{ font-size:.82rem; color:var(--ink-soft); font-weight:600; }
-  .rdsx .sticky-cta .btn-primary{ padding:11px 20px; }
 }
 `;
 
@@ -929,18 +924,6 @@ export default function RdsArticle() {
             </a>
           </div>
         </section>
-      </div>
-
-      <div className="sticky-cta">
-        <div className="amt">$100 free credit</div>
-        <a
-          href={SIGNUP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary"
-        >
-          Start free →
-        </a>
       </div>
     </div>
   );
