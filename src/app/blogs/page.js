@@ -23,6 +23,22 @@ const categories = [
 
 const STATIC_BLOGS = [
   {
+    id: "static-amazon-mq-vs-cloudamqp-rabbitmq-hosting",
+    isStatic: true,
+    slug: "amazon-mq-vs-cloudamqp-rabbitmq-hosting",
+    title:
+      "Amazon MQ vs CloudAMQP vs Alternatives: Best RabbitMQ Hosting 2026",
+    excerpt:
+      "Compare Amazon MQ, CloudAMQP, Neviri and other RabbitMQ hosting options in 2026. Compare pricing, features, HA, performance and use cases.",
+    category: "Databases",
+    createdAt: "2026-08-30T00:00:00.000Z",
+    author: { name: "Neviri Cloud" },
+    readTime: 12,
+    views: 0,
+    tags: ["rabbitmq", "amazon-mq", "cloudamqp", "messaging", "databases"],
+    isBookmarked: false,
+  },
+  {
     id: "static-managed-vms-vs-kubernetes-2026",
     isStatic: true,
     slug: "managed-vms-vs-kubernetes-startups-2026",
