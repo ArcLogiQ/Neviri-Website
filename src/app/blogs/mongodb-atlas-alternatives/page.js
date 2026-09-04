@@ -1,5 +1,4 @@
-import Breadcrumb from "@/components/common/Breadcrumb";
-import Navbar from "@/components/common/Navbar";
+import BlogDetailLayout from "@/components/blogs/BlogDetailLayout";
 
 export const metadata = {
     title: "MongoDB Atlas Alternatives for Growing Teams | Neviri Cloud",
@@ -36,15 +35,12 @@ function Code({ children }) {
 
 export default function Page() {
     return (
-        <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C]">
-            <Navbar />
-
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="mb-6">
-                    <Breadcrumb />
-                </div>
-
-                <article>
+        <BlogDetailLayout
+            slug="mongodb-atlas-alternatives"
+            title="MongoDB Atlas alternatives for teams that outgrew the free tier"
+            category="Managed Databases"
+        >
+            <article>
                     <header className="mb-8">
                         <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded text-sm mb-4">
                             Managed Databases
@@ -228,7 +224,6 @@ export default function Page() {
                         </P>
                     </section>
                 </article>
-            </div>
-        </div>
+        </BlogDetailLayout>
     );
 }

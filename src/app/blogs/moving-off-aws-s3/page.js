@@ -1,5 +1,4 @@
-import Breadcrumb from "@/components/common/Breadcrumb";
-import Navbar from "@/components/common/Navbar";
+import BlogDetailLayout from "@/components/blogs/BlogDetailLayout";
 
 export const metadata = {
     title: "Moving Off AWS S3 Without Rewriting Your App | Neviri Cloud",
@@ -36,15 +35,12 @@ function Code({ children }) {
 
 export default function Page() {
     return (
-        <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C]">
-            <Navbar />
-
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="mb-6">
-                    <Breadcrumb />
-                </div>
-
-                <article>
+        <BlogDetailLayout
+            slug="moving-off-aws-s3"
+            title="Moving off AWS S3 without rewriting your app"
+            category="Object Storage"
+        >
+            <article>
                     <header className="mb-8">
                         <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded text-sm mb-4">
                             Object Storage
@@ -219,7 +215,6 @@ s3 = boto3.client(
                         </P>
                     </section>
                 </article>
-            </div>
-        </div>
+        </BlogDetailLayout>
     );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Breadcrumb from "@/components/common/Breadcrumb";
-import Navbar from "@/components/common/Navbar";
+import BlogDetailLayout from "@/components/blogs/BlogDetailLayout";
 
 export const metadata = {
     title: "Cloud Cost Optimization: Why Cloud Isn't Expensive—Waste Is",
@@ -32,15 +31,12 @@ function Bullets({ items }) {
 
 export default function Page() {
     return (
-        <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C]">
-            <Navbar />
-
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="mb-6">
-                    <Breadcrumb />
-                </div>
-
-                <article>
+        <BlogDetailLayout
+            slug="cloud-isnt-expensive-waste-is"
+            title="Cloud Isn't Expensive. Waste Is."
+            category="Cloud Cost Optimization"
+        >
+            <article>
                     <header className="mb-8">
                         <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded text-sm mb-4">
                             Cloud Cost Optimization
@@ -794,7 +790,6 @@ export default function Page() {
                         </p>
                     </section>
                 </article>
-            </div>
-        </div>
+        </BlogDetailLayout>
     );
 }

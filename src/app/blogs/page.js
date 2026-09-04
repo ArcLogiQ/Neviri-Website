@@ -36,6 +36,7 @@ const STATIC_BLOGS = [
     readTime: 12,
     views: 0,
     tags: ["rabbitmq", "amazon-mq", "cloudamqp", "messaging", "databases"],
+    image: "/images/blogs/amazon-mq-vs-cloudamqp-rabbitmq-hosting.png",
     isBookmarked: false,
   },
   {
@@ -52,6 +53,7 @@ const STATIC_BLOGS = [
     readTime: 14,
     views: 0,
     tags: ["kubernetes", "managed-vms", "infrastructure", "startups", "devops"],
+    image: "/images/blogs/managed-vms-vs-kubernetes-startups-2026.png",
     isBookmarked: false,
   },
   {
@@ -68,6 +70,7 @@ const STATIC_BLOGS = [
     readTime: 15,
     views: 0,
     tags: ["cloud", "aws", "digitalocean", "cloud-comparison"],
+    image: "/images/blogs/aws-ec2-vs-digitalocean-vs-alternative-cloud-providers.png",
     isBookmarked: false,
   },
   {
@@ -83,6 +86,7 @@ const STATIC_BLOGS = [
     readTime: 6,
     views: 0,
     tags: ["object-storage", "s3", "cloud-cost", "egress"],
+    image: "/images/blogs/migrating-from-expensive-cloud-storage.png",
     isBookmarked: false,
   },
   {
@@ -98,6 +102,7 @@ const STATIC_BLOGS = [
     readTime: 7,
     views: 0,
     tags: ["database", "mongodb", "atlas-alternative", "managed-database"],
+    image: "/images/blogs/cost-effective-scaling-mongodb-replica-set.png",
     isBookmarked: false,
   },
   {
@@ -114,6 +119,7 @@ const STATIC_BLOGS = [
     readTime: 8,
     views: 1867,
     tags: ["database", "postgresql", "startups"],
+    image: "/images/blogs/AWS RDS Alternatives for Startups in 2026.png",
     isBookmarked: false,
   },
   {
@@ -128,6 +134,7 @@ const STATIC_BLOGS = [
     readTime: 12,
     views: 2431,
     tags: ["finops", "cloud-cost-optimization", "cloud-waste", "cloud-governance"],
+    image: "/images/blogs/Cloud Isn't Expensive. Waste Is..png",
     isBookmarked: false,
   },
 ];
@@ -138,18 +145,25 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("latest");
   const [activeTab, setActiveTab] = useState("all");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Fetch blogs on mount
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        setLoading(true);
         const res = await blogsAPI.getPublic();
         if (res.data && Array.isArray(res.data)) {
-          const apiBlogs = res.data.filter(
-            (b) => !STATIC_BLOGS.some((s) => s.slug === b.slug),
-          );
+          const apiBlogs = res.data
+            .filter((b) => !STATIC_BLOGS.some((s) => s.slug === b.slug))
+            .map((b) => ({
+              ...b,
+              image:
+                b.image ||
+                b.coverImage ||
+                b.featuredImage ||
+                b.content?.find((c) => c.type === "image")?.image ||
+                b.content?.find((c) => c.type === "image")?.url,
+            }));
           setBlogs([...STATIC_BLOGS, ...apiBlogs]);
         } else {
           setBlogs(STATIC_BLOGS);
@@ -357,8 +371,20 @@ export default function BlogPage() {
                     Featured Article
                   </h2>
                   <div className="bg-white/80 backdrop-blur-xl rounded-[2rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] transition-all duration-500 group">
-                    <div className="md:flex h-full">
-                      <div className="w-full p-8 lg:p-12 flex flex-col justify-center">
+                    <div className="md:grid md:grid-cols-12 h-full">
+                      {featuredBlog.image && (
+                        <div className="md:col-span-5 relative aspect-[3/2] md:aspect-auto md:min-h-[380px] bg-[#0A0F1D] overflow-hidden border-b md:border-b-0 md:border-r border-[#E2E8F0]">
+                          <Link href={`/blogs/${featuredBlog.slug}`} className="block w-full h-full">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={featuredBlog.image}
+                              alt={featuredBlog.title}
+                              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </Link>
+                        </div>
+                      )}
+                      <div className={`${featuredBlog.image ? "md:col-span-7" : "md:col-span-12"} p-8 lg:p-12 flex flex-col justify-center`}>
                         <div>
                           <div className="flex items-center space-x-3 mb-6">
                             <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
@@ -518,6 +544,19 @@ export default function BlogPage() {
                       key={blog.id}
                       className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 group flex flex-col"
                     >
+                      {blog.image && (
+                        <Link
+                          href={`/blogs/${blog.slug}`}
+                          className="block relative aspect-[3/2] w-full overflow-hidden bg-[#0A0F1D] border-b border-[#E2E8F0]"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={blog.image}
+                            alt={blog.title}
+                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </Link>
+                      )}
                       <div className="p-6 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-4">
                           <span className="inline-block bg-[#EFF6FF] text-[#3B82F6] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#BFDBFE]">
@@ -802,6 +841,19 @@ export default function BlogPage() {
                       key={blog.id}
                       className="bg-white/90 backdrop-blur-xl rounded-[1.5rem] border border-[#E2E8F0] overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:border-[#3B82F6] transition-all duration-500 hover:-translate-y-1 group flex flex-col"
                     >
+                      {blog.image && (
+                        <Link
+                          href={`/blogs/${blog.slug}`}
+                          className="block relative aspect-[3/2] w-full overflow-hidden bg-[#0A0F1D] border-b border-[#E2E8F0]"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={blog.image}
+                            alt={blog.title}
+                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </Link>
+                      )}
                       <div className="p-6 flex flex-col flex-grow">
                         <div className="flex items-start justify-between gap-3 mb-3">
                           <h3 className="text-xl font-bold text-[#0F172A] leading-tight group-hover:text-[#3B82F6] transition-colors">
