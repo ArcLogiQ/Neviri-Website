@@ -1,5 +1,4 @@
-import Breadcrumb from "@/components/common/Breadcrumb";
-import Navbar from "@/components/common/Navbar";
+import BlogDetailLayout from "@/components/blogs/BlogDetailLayout";
 
 export const metadata = {
   title:
@@ -102,15 +101,12 @@ function Table({ head, rows }) {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#F7F9FC] text-[#1A1F2C]">
-      <Navbar />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
-          <Breadcrumb />
-        </div>
-
-        <article>
+    <BlogDetailLayout
+      slug="amazon-mq-vs-cloudamqp-rabbitmq-hosting"
+      title="Amazon MQ vs CloudAMQP vs Alternatives: Best RabbitMQ Hosting 2026"
+      category="Databases"
+    >
+      <article>
           <header className="mb-8">
             <span className="inline-block bg-sky-600 text-white px-3 py-1 rounded text-sm mb-4">
               Databases
@@ -852,7 +848,6 @@ Neviri PostgreSQL`}</Diagram>
             </P>
           </section>
         </article>
-      </div>
-    </div>
+    </BlogDetailLayout>
   );
 }
